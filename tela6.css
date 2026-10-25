@@ -1,0 +1,1121 @@
+/* ==========================================
+   ECOENERGIA - TELA 6
+   CRIE SEU COMPANHEIRO
+   APRESENTACAO CINEMATOGRAFICA
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap');
+
+/* ==========================================
+   CONFIGURACOES GERAIS
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #372a1d;
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 4px solid #fff17b;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   ESTRUTURA PRINCIPAL
+========================================== */
+
+.t6-apresentacao {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+}
+
+.t6-cena {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* ==========================================
+   FUNDO - OFICINA DA NATUREZA
+========================================== */
+
+.t6-fundo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image:
+        url("assets/telas/fundo-tela-6.png");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    animation: t6-entrada-fundo 1.4s ease-out both;
+}
+
+/* LUZ CINEMATOGRAFICA */
+
+.t6-iluminacao {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 40% 51%,
+            rgba(255, 230, 124, 0.12),
+            transparent 32%),
+        linear-gradient(180deg,
+            rgba(31, 17, 4, 0.05) 0%,
+            transparent 48%,
+            rgba(36, 22, 5, 0.22) 100%);
+}
+
+/* ==========================================
+   TITULO SUPERIOR
+========================================== */
+
+.t6-cabecalho {
+    position: absolute;
+
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: min(48%, 700px);
+
+    z-index: 9;
+}
+
+.t6-placa-titulo {
+    position: relative;
+
+    padding: 11px 22px 14px;
+
+    text-align: center;
+
+    border: 5px solid #8b4d1d;
+    border-radius: 25px;
+
+    background:
+        repeating-linear-gradient(0deg,
+            transparent 0px,
+            transparent 18px,
+            rgba(89, 49, 20, 0.10) 20px,
+            transparent 23px),
+        linear-gradient(180deg,
+            #bd7b3e,
+            #985720 60%,
+            #7b4318);
+
+    box-shadow:
+        inset 0 3px 0 #ebb679,
+        inset 0 -4px 0 #683715,
+        0 7px 0 #6a3a18,
+        0 16px 28px rgba(23, 11, 3, 0.35);
+
+    animation: t6-entrada-titulo 0.9s ease-out both;
+}
+
+/* FOLHAS DECORATIVAS */
+
+.t6-placa-titulo::before,
+.t6-placa-titulo::after {
+    content: "";
+
+    position: absolute;
+
+    width: 39px;
+    height: 26px;
+
+    border-radius: 0 100% 0 100%;
+
+    background: linear-gradient(135deg,
+            #c4f56c,
+            #42a338);
+
+    box-shadow: 7px 4px 0 #2f7d2d;
+}
+
+.t6-placa-titulo::before {
+    top: -10px;
+    left: 12px;
+
+    transform: rotate(-28deg);
+}
+
+.t6-placa-titulo::after {
+    top: -10px;
+    right: 12px;
+
+    transform: rotate(62deg);
+}
+
+/* TEXTO PRINCIPAL */
+
+.t6-placa-titulo h1 {
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: clamp(30px, 3.25vw, 56px);
+    font-weight: 700;
+    line-height: 1.07;
+
+    color: #fff0b9;
+
+    text-shadow:
+        0 3px 0 #a15d20,
+        0 6px 0 #704017,
+        0 10px 15px rgba(35, 16, 4, 0.36);
+}
+
+.t6-placa-titulo h1 span {
+    color: #ffce4d;
+
+    text-shadow:
+        0 3px 0 #bd7520,
+        0 6px 0 #875013,
+        0 10px 15px rgba(35, 16, 4, 0.36);
+}
+
+.t6-placa-titulo p {
+    margin-top: 6px;
+
+    color: #fff6e1;
+
+    font-size: clamp(11px, 0.95vw, 16px);
+    font-weight: 900;
+    line-height: 1.25;
+
+    text-shadow: 0 2px 3px #5a2b0e;
+}
+
+/* ==========================================
+   LUMI - LADO ESQUERDO
+
+   AREA EXCLUSIVA:
+   1% A 19% DA TELA
+========================================== */
+
+.t6-area-lumi {
+    position: absolute;
+
+    left: 1%;
+    top: 24%;
+
+    width: 18%;
+    height: 61%;
+
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    pointer-events: none;
+}
+
+/* BALAO DE EXPLICACAO */
+
+.t6-balao {
+    position: relative;
+
+    width: 100%;
+    margin-bottom: 12px;
+
+    padding: 13px 14px;
+
+    background: linear-gradient(180deg,
+            #ffffff,
+            #fff3d9);
+
+    border: 4px solid #d9a65e;
+    border-radius: 22px;
+
+    text-align: center;
+
+    box-shadow:
+        0 6px 0 #956431,
+        0 12px 20px rgba(44, 28, 8, 0.25);
+
+    animation: t6-entrada-balao 0.8s 0.7s ease-out both;
+}
+
+.t6-balao::after {
+    content: "";
+
+    position: absolute;
+
+    left: 48%;
+    bottom: -14px;
+
+    width: 19px;
+    height: 19px;
+
+    background: #fff3d9;
+
+    border-right: 4px solid #d9a65e;
+    border-bottom: 4px solid #d9a65e;
+
+    transform: rotate(45deg);
+}
+
+.t6-balao p {
+    font-family: 'Fredoka', sans-serif;
+
+    color: #24496a;
+
+    font-size: clamp(12px, 1.1vw, 18px);
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+.t6-balao strong {
+    color: #24a45a;
+    font-weight: 700;
+}
+
+/* IMAGEM DA LUMI */
+
+.t6-lumi {
+    width: 100%;
+    height: 60%;
+
+    object-fit: contain;
+    object-position: bottom center;
+
+    user-select: none;
+
+    filter: drop-shadow(0 12px 15px rgba(30, 40, 27, 0.35));
+
+    animation:
+        t6-entrada-lumi 1s 0.25s ease-out both,
+        t6-flutuar 3.6s 1.25s ease-in-out infinite;
+}
+
+/* ==========================================
+   COMPANHEIRO - CENTRO
+
+   AREA EXCLUSIVA:
+   20% A 56% DA TELA
+========================================== */
+
+.t6-area-companheiro {
+    position: absolute;
+
+    left: 20%;
+    top: 23%;
+
+    width: 36%;
+    height: 60%;
+
+    z-index: 6;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    pointer-events: none;
+
+    animation:
+        t6-entrada-companheiro 1s 0.45s ease-out both;
+}
+
+.t6-companheiro {
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    object-position: bottom center;
+
+    user-select: none;
+
+    filter:
+        drop-shadow(0 14px 18px rgba(43, 25, 8, 0.30));
+}
+
+/* ==========================================
+   PRATELEIRA DE COSMETICOS - DIREITA
+
+   AREA EXCLUSIVA:
+   57% A 99% DA TELA
+========================================== */
+
+.t6-area-personalizacao {
+    position: absolute;
+
+    right: 1.5%;
+    top: 22%;
+
+    width: 41%;
+    height: 59%;
+
+    z-index: 6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: none;
+
+    animation:
+        t6-entrada-painel 1s 0.65s ease-out both;
+}
+
+.t6-painel-personalizacao {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+
+    filter: drop-shadow(0 14px 20px rgba(40, 24, 7, 0.35));
+}
+
+/* ==========================================
+   MENSAGEM INFERIOR
+========================================== */
+
+.t6-mensagem {
+    position: absolute;
+
+    left: 50%;
+    bottom: 10%;
+
+    transform: translateX(-50%);
+
+    z-index: 8;
+
+    width: min(50%, 730px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 10px 18px;
+
+    background: linear-gradient(180deg,
+            #fff8e3,
+            #f7dbaa);
+
+    border: 4px solid #c8904c;
+    border-radius: 22px;
+
+    box-shadow:
+        0 6px 0 #8b5927,
+        0 12px 22px rgba(30, 19, 5, 0.24);
+
+    animation:
+        t6-entrada-mensagem 0.9s 1.1s ease-out both;
+}
+
+.t6-mensagem span {
+    font-size: clamp(19px, 1.7vw, 28px);
+}
+
+.t6-mensagem p {
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: clamp(12px, 1.12vw, 19px);
+    font-weight: 600;
+
+    color: #65411c;
+
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* ==========================================
+   NAVEGACAO INFERIOR
+========================================== */
+
+.t6-navegacao {
+    position: absolute;
+
+    left: 2.5%;
+    right: 2.5%;
+    bottom: 2.5%;
+
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+
+    animation:
+        t6-entrada-navegacao 0.9s 1.15s ease-out both;
+}
+
+/* BOTOES */
+
+.t6-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 13px 25px;
+
+    border: 3px solid #eaf7be;
+    border-radius: 100px;
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: clamp(14px, 1.2vw, 19px);
+    font-weight: 600;
+
+    transition:
+        transform 0.22s ease,
+        filter 0.22s ease;
+}
+
+.t6-botao:hover {
+    transform: translateY(-4px) scale(1.04);
+    filter: brightness(1.08);
+}
+
+.t6-botao:active {
+    transform: translateY(2px);
+}
+
+/* BOTAO VOLTAR */
+
+.t6-voltar {
+    background: linear-gradient(#ffffff,
+            #ebf6e8);
+
+    color: #236742;
+
+    box-shadow:
+        0 7px 0 #49915e,
+        0 13px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* BOTAO CONTINUAR */
+
+.t6-continuar {
+    background: linear-gradient(#b5f665,
+            #54c345);
+
+    color: #1b6334;
+
+    box-shadow:
+        0 7px 0 #2e8c3a,
+        0 13px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* INDICADOR */
+
+.t6-indicador {
+    padding: 8px 18px;
+
+    border: 2px solid #ffffff;
+    border-radius: 100px;
+
+    background: rgba(255, 249, 223, 0.93);
+
+    color: #266d44;
+
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   ANIMACOES
+========================================== */
+
+/* FUNDO */
+
+@keyframes t6-entrada-fundo {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+/* TITULO */
+
+@keyframes t6-entrada-titulo {
+    from {
+        opacity: 0;
+        translate: 0 -60px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* LUMI */
+
+@keyframes t6-entrada-lumi {
+    from {
+        opacity: 0;
+        translate: -90px 0;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* BALAO */
+
+@keyframes t6-entrada-balao {
+    from {
+        opacity: 0;
+        transform: scale(0.80);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* COMPANHEIRO */
+
+@keyframes t6-entrada-companheiro {
+    from {
+        opacity: 0;
+        transform: translateY(45px) scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* PRATELEIRA */
+
+@keyframes t6-entrada-painel {
+    from {
+        opacity: 0;
+        translate: 100px 0;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* MENSAGEM */
+
+@keyframes t6-entrada-mensagem {
+    from {
+        opacity: 0;
+        translate: 0 25px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* NAVEGACAO */
+
+@keyframes t6-entrada-navegacao {
+    from {
+        opacity: 0;
+        translate: 0 25px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* FLUTUACAO SUAVE */
+
+@keyframes t6-flutuar {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -9px;
+    }
+}
+
+/* ==========================================
+   NOTEBOOKS MENORES
+========================================== */
+
+@media (max-width: 1200px) and (min-width: 781px) {
+
+    .t6-cabecalho {
+        width: 48%;
+    }
+
+    .t6-placa-titulo {
+        padding: 9px 13px 12px;
+    }
+
+    .t6-placa-titulo h1 {
+        font-size: clamp(28px, 3.2vw, 45px);
+    }
+
+    .t6-area-lumi {
+        left: 1%;
+        width: 18%;
+    }
+
+    .t6-area-companheiro {
+        left: 20%;
+        width: 36%;
+    }
+
+    .t6-area-personalizacao {
+        right: 1%;
+        width: 42%;
+    }
+
+    .t6-balao {
+        padding: 10px;
+    }
+
+    .t6-balao p {
+        font-size: clamp(11px, 1.2vw, 15px);
+    }
+
+    .t6-mensagem {
+        width: 52%;
+    }
+}
+
+/* ==========================================
+   TELAS COM POUCA ALTURA
+========================================== */
+
+@media (max-height: 680px) and (min-width: 781px) {
+
+    .t6-cabecalho {
+        top: 1%;
+    }
+
+    .t6-placa-titulo {
+        padding: 7px 12px 9px;
+    }
+
+    .t6-placa-titulo h1 {
+        font-size: clamp(27px, 2.7vw, 43px);
+    }
+
+    .t6-placa-titulo p {
+        font-size: 11px;
+    }
+
+    .t6-area-lumi {
+        top: 23%;
+        height: 60%;
+    }
+
+    .t6-area-companheiro {
+        top: 22%;
+        height: 60%;
+    }
+
+    .t6-area-personalizacao {
+        top: 21%;
+        height: 59%;
+    }
+
+    .t6-mensagem {
+        bottom: 10%;
+        padding: 7px 13px;
+    }
+
+    .t6-mensagem p {
+        font-size: clamp(11px, 1vw, 15px);
+    }
+
+    .t6-botao {
+        padding: 9px 17px;
+        font-size: 14px;
+    }
+
+    .t6-indicador {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (min-width: 561px) and (max-width: 780px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .t6-apresentacao,
+    .t6-cena {
+        height: auto;
+        min-height: 100dvh;
+    }
+
+    .t6-cena {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 18px;
+        padding: 20px 16px 28px;
+    }
+
+    .t6-fundo,
+    .t6-iluminacao {
+        position: fixed;
+    }
+
+    .t6-cabecalho {
+        position: relative;
+
+        top: auto;
+        left: auto;
+        transform: none;
+
+        width: min(100%, 600px);
+        order: 1;
+    }
+
+    .t6-area-lumi {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 65%;
+        height: auto;
+
+        order: 2;
+    }
+
+    .t6-balao {
+        max-width: 320px;
+    }
+
+    .t6-lumi {
+        width: 65%;
+        height: auto;
+        max-height: 300px;
+    }
+
+    .t6-area-companheiro {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 75%;
+        height: auto;
+
+        order: 3;
+    }
+
+    .t6-companheiro {
+        width: 100%;
+        height: auto;
+        max-height: 450px;
+    }
+
+    .t6-area-personalizacao {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: 100%;
+        height: auto;
+
+        order: 4;
+    }
+
+    .t6-painel-personalizacao {
+        width: 100%;
+        height: auto;
+    }
+
+    .t6-mensagem {
+        position: relative;
+
+        left: auto;
+        bottom: auto;
+
+        transform: none;
+
+        width: 100%;
+        order: 5;
+    }
+
+    .t6-navegacao {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 100%;
+        order: 6;
+    }
+}
+
+/* ==========================================
+   CELULARES
+========================================== */
+
+@media (max-width: 560px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .t6-apresentacao {
+        height: auto;
+        min-height: 100dvh;
+    }
+
+    .t6-cena {
+        height: auto;
+        min-height: 100dvh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 18px 12px 28px;
+        gap: 20px;
+    }
+
+    .t6-fundo,
+    .t6-iluminacao {
+        position: fixed;
+    }
+
+    /* TITULO */
+
+    .t6-cabecalho {
+        position: relative;
+
+        top: auto;
+        left: auto;
+        transform: none;
+
+        width: 100%;
+        order: 1;
+    }
+
+    .t6-placa-titulo {
+        padding: 10px 13px;
+    }
+
+    .t6-placa-titulo h1 {
+        font-size: clamp(28px, 7vw, 42px);
+    }
+
+    .t6-placa-titulo p {
+        font-size: 12px;
+    }
+
+    /* LUMI */
+
+    .t6-area-lumi {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 90%;
+        height: auto;
+
+        order: 2;
+    }
+
+    .t6-balao {
+        max-width: 330px;
+    }
+
+    .t6-balao p {
+        font-size: 15px;
+    }
+
+    .t6-lumi {
+        width: 57%;
+        height: auto;
+        max-height: 270px;
+    }
+
+    /* COMPANHEIRO */
+
+    .t6-area-companheiro {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 100%;
+        height: auto;
+
+        order: 3;
+    }
+
+    .t6-companheiro {
+        width: 100%;
+        height: auto;
+        max-height: 380px;
+    }
+
+    /* PRATELEIRA */
+
+    .t6-area-personalizacao {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: 100%;
+        height: auto;
+
+        order: 4;
+    }
+
+    .t6-painel-personalizacao {
+        width: 100%;
+        height: auto;
+    }
+
+    /* MENSAGEM */
+
+    .t6-mensagem {
+        position: relative;
+
+        left: auto;
+        bottom: auto;
+
+        transform: none;
+
+        width: 100%;
+        order: 5;
+    }
+
+    .t6-mensagem p {
+        font-size: 13px;
+    }
+
+    /* NAVEGACAO */
+
+    .t6-navegacao {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 100%;
+        gap: 6px;
+
+        order: 6;
+    }
+
+    .t6-botao {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .t6-indicador {
+        padding: 5px 8px;
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+}
+
+/* ==========================================
+   ACESSIBILIDADE
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

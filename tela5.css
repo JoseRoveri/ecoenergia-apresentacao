@@ -1,0 +1,1003 @@
+/* ==========================================
+   ECOENERGIA - TELA 5
+   APRENDER BRINCANDO
+
+   QUIZ + RECOMPENSAS
+   ESTILO CINEMATOGRAFICO 3D
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap');
+
+/* ==========================================
+   CONFIGURACOES GERAIS
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #12392d;
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 4px solid #fff28a;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   APRESENTACAO
+========================================== */
+
+.t5-apresentacao {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+}
+
+.t5-cena {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* ==========================================
+   CENARIO DE FUNDO
+========================================== */
+
+.t5-fundo {
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+
+    background-image:
+        url("assets/telas/fundo-tela-5.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    animation:
+        t5-entrada-cenario 1.5s ease-out both;
+}
+
+/* ILUMINACAO CINEMATOGRAFICA */
+
+.t5-iluminacao {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 75% 16%,
+            rgba(255, 249, 174, 0.18),
+            transparent 28%),
+        linear-gradient(180deg,
+            rgba(0, 53, 47, 0.04) 0%,
+            transparent 40%,
+            rgba(5, 48, 31, 0.2) 100%);
+}
+
+/* ==========================================
+   TITULO SUPERIOR
+========================================== */
+
+.t5-cabecalho {
+    position: absolute;
+
+    top: 2%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(43%, 620px);
+
+    z-index: 8;
+}
+
+.t5-placa-titulo {
+    position: relative;
+
+    padding: 12px 22px 15px;
+
+    text-align: center;
+
+    border: 5px solid #8b4d1d;
+    border-radius: 28px;
+
+    background:
+        repeating-linear-gradient(0deg,
+            transparent 0px,
+            transparent 18px,
+            rgba(89, 49, 20, 0.10) 20px,
+            transparent 23px),
+        linear-gradient(180deg,
+            #b8783f,
+            #985720 60%,
+            #7b4318);
+
+    box-shadow:
+        inset 0 3px 0 #ebb679,
+        inset 0 -4px 0 #683715,
+        0 8px 0 #6a3a18,
+        0 20px 34px rgba(23, 11, 3, 0.35);
+
+    animation:
+        t5-entrada-titulo 0.9s ease-out both;
+}
+
+/* FOLHAS DECORATIVAS */
+
+.t5-placa-titulo::before,
+.t5-placa-titulo::after {
+    content: "";
+
+    position: absolute;
+
+    width: 44px;
+    height: 28px;
+
+    border-radius: 0 100% 0 100%;
+
+    background:
+        linear-gradient(135deg,
+            #c4f56c,
+            #42a338);
+
+    box-shadow: 8px 5px 0 #2f7d2d;
+}
+
+.t5-placa-titulo::before {
+    top: -10px;
+    left: 12px;
+
+    transform: rotate(-28deg);
+}
+
+.t5-placa-titulo::after {
+    top: -10px;
+    right: 12px;
+
+    transform: rotate(62deg);
+}
+
+/* TEXTO DO TITULO */
+
+.t5-placa-titulo h1 {
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: clamp(32px, 3.4vw, 58px);
+    font-weight: 700;
+    line-height: 1.05;
+
+    color: #ffcb44;
+
+    -webkit-text-stroke: 1px #8f5312;
+
+    text-shadow:
+        0 4px 0 #ab6410,
+        0 7px 0 #864407,
+        0 13px 18px rgba(32, 14, 4, 0.5);
+}
+
+.t5-placa-titulo h1 span {
+    color: #72e84d;
+
+    -webkit-text-stroke: 1px #1b6f33;
+
+    text-shadow:
+        0 4px 0 #2f943f,
+        0 7px 0 #155e29,
+        0 13px 18px rgba(32, 14, 4, 0.5);
+}
+
+.t5-placa-titulo p {
+    margin-top: 7px;
+
+    color: #fff6e0;
+
+    font-size: clamp(11px, 1vw, 16px);
+    font-weight: 900;
+    line-height: 1.3;
+
+    text-shadow: 0 2px 3px #5a2b0e;
+}
+
+/* ==========================================
+   PAINEL CENTRAL DO QUIZ
+
+   AREA EXCLUSIVA DO PAINEL
+   PARA EVITAR SOBREPOSICOES
+========================================== */
+
+.t5-area-quiz {
+    position: absolute;
+
+    left: 17%;
+    top: 25%;
+
+    width: 55%;
+    height: 59%;
+
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: none;
+
+    animation:
+        t5-entrada-quiz 1s 0.3s ease-out both;
+}
+
+.t5-painel-quiz {
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 16px 24px rgba(22, 35, 12, 0.36));
+}
+
+/* ==========================================
+   PAINEL DE RECOMPENSAS
+
+   CANTO SUPERIOR DIREITO
+========================================== */
+
+.t5-area-recompensas {
+    position: absolute;
+
+    right: 1%;
+    top: 22%;
+
+    width: 24%;
+    height: 40%;
+
+    z-index: 6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: none;
+
+    animation:
+        t5-entrada-recompensas 1s 1.15s ease-out both;
+}
+
+.t5-painel-recompensas {
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 14px 20px rgba(39, 24, 7, 0.35));
+}
+
+/* ==========================================
+   PERSONAGENS
+========================================== */
+
+.t5-personagem {
+    position: absolute;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 14px 18px rgba(10, 48, 30, 0.38));
+}
+
+/* ==========================================
+   LUMI - CANTO INFERIOR ESQUERDO
+
+   NAO INVADE A AREA DO QUIZ
+========================================== */
+
+.t5-lumi {
+    left: 0.5%;
+    bottom: 9%;
+
+    width: 15%;
+    height: 43%;
+
+    z-index: 4;
+
+    object-position: bottom center;
+
+    animation:
+        t5-entrada-lumi 1s 0.45s ease-out both,
+        t5-flutuar 3.6s 1.5s ease-in-out infinite;
+}
+
+/* ==========================================
+   CAPI - CANTO INFERIOR DIREITO
+
+   ABAIXO DO PAINEL DE RECOMPENSAS
+========================================== */
+
+.t5-capi {
+    right: 1%;
+    bottom: 9%;
+
+    width: 17%;
+    height: 27%;
+
+    z-index: 7;
+
+    object-position: bottom center;
+
+    animation:
+        t5-entrada-capi 1s 0.9s ease-out both,
+        t5-pular 3s 1.9s ease-in-out infinite;
+}
+
+/* ==========================================
+   NAVEGACAO INFERIOR
+========================================== */
+
+.t5-navegacao {
+    position: absolute;
+
+    left: 2.5%;
+    right: 2.5%;
+    bottom: 2.5%;
+
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+
+    animation:
+        t5-entrada-navegacao 0.9s 1.2s both;
+}
+
+/* BOTOES */
+
+.t5-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 13px 25px;
+
+    border: 3px solid #eaf7be;
+    border-radius: 100px;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(14px, 1.2vw, 19px);
+    font-weight: 600;
+
+    transition:
+        transform 0.22s ease,
+        filter 0.22s ease;
+}
+
+.t5-botao:hover {
+    transform:
+        translateY(-4px) scale(1.04);
+
+    filter: brightness(1.08);
+}
+
+.t5-botao:active {
+    transform: translateY(2px);
+}
+
+/* VOLTAR */
+
+.t5-voltar {
+    background:
+        linear-gradient(#ffffff,
+            #ebf6e8);
+
+    color: #236742;
+
+    box-shadow:
+        0 7px 0 #49915e,
+        0 13px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* CONTINUAR */
+
+.t5-continuar {
+    background:
+        linear-gradient(#b5f665,
+            #54c345);
+
+    color: #1b6334;
+
+    box-shadow:
+        0 7px 0 #2e8c3a,
+        0 13px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* INDICADOR DE TELA */
+
+.t5-indicador {
+    padding: 8px 18px;
+
+    border: 2px solid #ffffff;
+    border-radius: 100px;
+
+    background: rgba(255, 249, 223, 0.93);
+
+    color: #266d44;
+
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   ANIMACOES
+========================================== */
+
+/* CENARIO */
+
+@keyframes t5-entrada-cenario {
+    from {
+        opacity: 0;
+        transform: scale(1.06);
+        filter: blur(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+/* TITULO */
+
+@keyframes t5-entrada-titulo {
+    from {
+        opacity: 0;
+        translate: 0 -55px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* QUIZ */
+
+@keyframes t5-entrada-quiz {
+    from {
+        opacity: 0;
+        transform: scale(0.88);
+        filter: blur(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+/* RECOMPENSAS */
+
+@keyframes t5-entrada-recompensas {
+    from {
+        opacity: 0;
+        translate: 65px 0;
+        scale: 0.86;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+        scale: 1;
+    }
+}
+
+/* LUMI */
+
+@keyframes t5-entrada-lumi {
+    from {
+        opacity: 0;
+        translate: -110px 0;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* CAPI */
+
+@keyframes t5-entrada-capi {
+    from {
+        opacity: 0;
+        translate: 90px 0;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* FLUTUACAO DA LUMI */
+
+@keyframes t5-flutuar {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -10px;
+    }
+}
+
+/* COMEMORACAO DA CAPI */
+
+@keyframes t5-pular {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -9px;
+    }
+}
+
+/* NAVEGACAO */
+
+@keyframes t5-entrada-navegacao {
+    from {
+        opacity: 0;
+        translate: 0 25px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+/* ==========================================
+   NOTEBOOKS MENORES
+
+   MANTER QUIZ GRANDE
+========================================== */
+
+@media (max-width: 1200px) and (min-width: 781px) {
+
+    .t5-cabecalho {
+        width: 46%;
+    }
+
+    .t5-placa-titulo {
+        padding: 10px 14px;
+    }
+
+    .t5-placa-titulo h1 {
+        font-size: clamp(30px, 3.2vw, 46px);
+    }
+
+    .t5-area-quiz {
+        left: 16%;
+        top: 25%;
+
+        width: 56%;
+        height: 58%;
+    }
+
+    .t5-area-recompensas {
+        right: 0.5%;
+        top: 23%;
+
+        width: 25%;
+        height: 39%;
+    }
+
+    .t5-lumi {
+        width: 14%;
+        height: 40%;
+    }
+
+    .t5-capi {
+        width: 16%;
+        height: 26%;
+    }
+}
+
+/* ==========================================
+   TELAS COM POUCA ALTURA
+========================================== */
+
+@media (max-height: 680px) and (min-width: 781px) {
+
+    .t5-cabecalho {
+        top: 1%;
+    }
+
+    .t5-placa-titulo {
+        padding: 7px 13px 9px;
+    }
+
+    .t5-placa-titulo h1 {
+        font-size: clamp(28px, 3vw, 44px);
+    }
+
+    .t5-placa-titulo p {
+        font-size: 11px;
+    }
+
+    .t5-area-quiz {
+        top: 24%;
+        height: 60%;
+    }
+
+    .t5-area-recompensas {
+        top: 23%;
+        height: 38%;
+    }
+
+    .t5-lumi {
+        height: 39%;
+    }
+
+    .t5-capi {
+        height: 25%;
+    }
+
+    .t5-botao {
+        padding: 9px 17px;
+        font-size: 14px;
+    }
+
+    .t5-indicador {
+        padding: 5px 13px;
+        font-size: 13px;
+    }
+}
+
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media (min-width: 561px) and (max-width: 780px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .t5-apresentacao,
+    .t5-cena {
+        height: auto;
+        min-height: 100dvh;
+    }
+
+    .t5-cena {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 18px;
+        padding: 20px 18px 28px;
+    }
+
+    .t5-fundo,
+    .t5-iluminacao {
+        position: fixed;
+    }
+
+    .t5-cabecalho {
+        position: relative;
+
+        top: auto;
+        left: auto;
+        transform: none;
+
+        width: min(100%, 600px);
+        order: 1;
+    }
+
+    .t5-area-quiz {
+        position: relative;
+
+        left: auto;
+        top: auto;
+
+        width: 100%;
+        height: auto;
+
+        order: 2;
+    }
+
+    .t5-painel-quiz {
+        width: 100%;
+        height: auto;
+    }
+
+    .t5-area-recompensas {
+        position: relative;
+
+        right: auto;
+        top: auto;
+
+        width: min(56%, 310px);
+        height: auto;
+
+        order: 3;
+    }
+
+    .t5-painel-recompensas {
+        width: 100%;
+        height: auto;
+    }
+
+    .t5-personagem {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 28%;
+        height: auto;
+        max-height: 260px;
+    }
+
+    .t5-lumi {
+        order: 4;
+        align-self: flex-start;
+    }
+
+    .t5-capi {
+        order: 5;
+        align-self: flex-end;
+    }
+
+    .t5-navegacao {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 100%;
+
+        order: 6;
+    }
+}
+
+/* ==========================================
+   CELULARES
+========================================== */
+
+@media (max-width: 560px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .t5-apresentacao {
+        height: auto;
+        min-height: 100dvh;
+    }
+
+    .t5-cena {
+        height: auto;
+        min-height: 100dvh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 18px 12px 28px;
+        gap: 20px;
+    }
+
+    .t5-fundo,
+    .t5-iluminacao {
+        position: fixed;
+    }
+
+    /* TITULO */
+
+    .t5-cabecalho {
+        position: relative;
+
+        top: auto;
+        left: auto;
+        transform: none;
+
+        width: 100%;
+        order: 1;
+    }
+
+    .t5-placa-titulo {
+        padding: 12px 15px;
+    }
+
+    .t5-placa-titulo h1 {
+        font-size: clamp(30px, 8vw, 46px);
+    }
+
+    .t5-placa-titulo p {
+        font-size: 12px;
+    }
+
+    /* QUIZ */
+
+    .t5-area-quiz {
+        position: relative;
+
+        left: auto;
+        top: auto;
+
+        width: 100%;
+        height: auto;
+
+        order: 2;
+    }
+
+    .t5-painel-quiz {
+        width: 100%;
+        height: auto;
+    }
+
+    /* RECOMPENSAS */
+
+    .t5-area-recompensas {
+        position: relative;
+
+        right: auto;
+        top: auto;
+
+        width: min(78%, 350px);
+        height: auto;
+
+        order: 3;
+    }
+
+    .t5-painel-recompensas {
+        width: 100%;
+        height: auto;
+    }
+
+    /* PERSONAGENS */
+
+    .t5-personagem {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 42%;
+        max-width: 200px;
+
+        height: auto;
+        max-height: none;
+    }
+
+    .t5-lumi {
+        order: 4;
+        align-self: flex-start;
+    }
+
+    .t5-capi {
+        order: 5;
+        align-self: flex-end;
+    }
+
+    /* NAVEGACAO */
+
+    .t5-navegacao {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 100%;
+        gap: 6px;
+
+        order: 6;
+    }
+
+    .t5-botao {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .t5-indicador {
+        padding: 5px 8px;
+
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+}
+
+/* ==========================================
+   ACESSIBILIDADE
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

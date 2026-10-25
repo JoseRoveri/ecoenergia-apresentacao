@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoEnergia | Aventura Sustentável</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="apresentacao">
+
+        <section class="tela-abertura" id="tela-abertura">
+
+            <!-- Fundo -->
+            <div class="fundo"></div>
+            <div class="overlay"></div>
+
+            <!-- Conteúdo principal -->
+            <div class="conteudo">
+                <span class="tag">UMA AVENTURA SUSTENTÁVEL</span>
+
+                <h1 class="logo">
+                    Eco<span>Energia</span>
+                </h1>
+
+                <p class="subtitulo">
+                    Pequenas atitudes, grandes transformações!
+                </p>
+
+                <div class="botoes-principais">
+                    <button id="btn-entrar" class="btn btn-principal">
+                        Entrar na aventura
+                        <span>➜</span>
+                    </button>
+
+                    <button id="btn-projeto" class="btn btn-secundario">
+                        Sobre o projeto
+                    </button>
+
+                    <button id="btn-personagens" class="btn btn-secundario">
+                        Personagens
+                    </button>
+                </div>
+            </div>
+
+            <!-- Personagens -->
+            <img src="assets/personagens/lumi.png" alt="Lumi" class="personagem lumi" id="lumi">
+
+            <img src="assets/personagens/capi.png" alt="Capi" class="personagem capi" id="capi">
+
+            <!-- Painel interativo -->
+            <div class="painel" id="painel">
+                <button class="fechar-painel" id="fechar-painel">×</button>
+                <h2 id="painel-titulo">Título</h2>
+                <p id="painel-texto">Conteúdo</p>
+            </div>
+
+            <!-- Indicador inferior -->
+            <div class="rodape-info">
+                <span>DESCUBRA • APRENDA • TRANSFORME</span>
+            </div>
+
+            <!-- Tela de transição -->
+            <div class="transicao" id="transicao">
+                <div class="transicao-conteudo">
+                    <h2>Entrando na aventura...</h2>
+                    <p>Preparando a próxima etapa do EcoEnergia</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="navegacao.js"></script>
+
+
+</body>
+
+</html>

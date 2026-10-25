@@ -1,0 +1,1234 @@
+/* ==========================================
+   ECOENERGIA - TELA 3
+   CONHECA NOSSA SOLUCAO
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+/* ==========================================
+   CONFIGURACOES GERAIS
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #143b2c;
+    overflow: hidden;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 4px solid #ffe77a;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   APRESENTACAO
+========================================== */
+
+.t3-apresentacao {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+}
+
+.t3-cena {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* ==========================================
+   CENARIO 3D
+========================================== */
+
+.t3-fundo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image: url("assets/telas/fundo-tela-3.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    animation: t3-entrada-cenario 1.5s ease-out both;
+}
+
+.t3-iluminacao {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 75% 12%,
+            rgba(255, 246, 165, 0.13),
+            transparent 30%),
+        linear-gradient(180deg,
+            rgba(3, 48, 44, 0.06) 0%,
+            transparent 40%,
+            rgba(9, 48, 26, 0.16) 100%);
+
+    animation: t3-brilho 5s ease-in-out infinite alternate;
+}
+
+/* ==========================================
+   CABECALHO
+========================================== */
+
+.t3-cabecalho {
+    position: absolute;
+    top: 2.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+
+    width: min(60%, 760px);
+
+    text-align: center;
+}
+
+/* PLACA DE MADEIRA */
+
+.t3-placa-logo {
+    position: relative;
+    padding: 11px 28px 16px;
+
+    border: 5px solid #9f602b;
+    border-radius: 24px;
+
+    background:
+        repeating-linear-gradient(0deg,
+            transparent 0px,
+            transparent 22px,
+            rgba(101, 48, 15, 0.09) 23px,
+            transparent 27px),
+        linear-gradient(180deg,
+            #b8793d 0%,
+            #955622 45%,
+            #754016 100%);
+
+    box-shadow:
+        inset 0 3px 0 #e6b574,
+        inset 0 -5px 0 #623512,
+        0 9px 0 #633811,
+        0 18px 30px rgba(35, 20, 8, 0.4);
+
+    animation: t3-descer 0.9s ease-out both;
+}
+
+/* FOLHAS DECORATIVAS */
+
+.t3-placa-logo::before,
+.t3-placa-logo::after {
+    content: "";
+    position: absolute;
+
+    width: 45px;
+    height: 30px;
+
+    border-radius: 0 100% 0 100%;
+
+    background: linear-gradient(135deg,
+            #c4f675,
+            #4aaa39);
+
+    box-shadow: 8px 5px 0 #3b9431;
+}
+
+.t3-placa-logo::before {
+    top: -12px;
+    left: -12px;
+    transform: rotate(-25deg);
+}
+
+.t3-placa-logo::after {
+    top: -9px;
+    right: -12px;
+    transform: rotate(65deg);
+}
+
+/* ETIQUETA */
+
+.t3-etiqueta {
+    display: inline-block;
+    padding: 5px 17px;
+
+    background: #fff5d8;
+    border: 2px solid #efd295;
+    border-radius: 100px;
+
+    color: #348250;
+    font-size: clamp(9px, 0.9vw, 13px);
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+/* LOGOTIPO */
+
+.t3-logo {
+    margin-top: 3px;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(45px, 5.2vw, 78px);
+    font-weight: 700;
+    letter-spacing: -3px;
+    line-height: 1.1;
+
+    color: #73e44b;
+
+    -webkit-text-stroke: 1.5px #176e32;
+
+    text-shadow:
+        0 4px 0 #145d2c,
+        0 7px 0 #104927,
+        0 12px 15px #21130999;
+}
+
+.t3-logo span {
+    color: #ffd34c;
+    -webkit-text-stroke: 1.5px #af6e12;
+
+    text-shadow:
+        0 4px 0 #b87815,
+        0 7px 0 #94540c,
+        0 12px 15px #21130999;
+}
+
+/* SUBTITULO */
+
+.t3-subtitulo {
+    margin-top: 5px;
+
+    color: #fff5d5;
+    font-size: clamp(11px, 1.2vw, 18px);
+    font-weight: 900;
+    line-height: 1.2;
+
+    text-shadow: 0 2px 4px #4b240d;
+}
+
+/* ==========================================
+   QUADRO PRINCIPAL
+========================================== */
+
+.t3-painel-principal {
+    position: absolute;
+    z-index: 3;
+
+    left: 50%;
+    top: 29%;
+    transform: translateX(-50%);
+
+    width: min(64%, 990px);
+    height: 55%;
+
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: 10px;
+
+    padding: 15px;
+
+    border: 9px solid #a96931;
+    border-radius: 30px;
+
+    background:
+        linear-gradient(140deg,
+            #f9efd5,
+            #ebd3a0);
+
+    box-shadow:
+        inset 0 0 0 4px #ffdfa0,
+        0 12px 0 #74401b,
+        0 22px 40px rgba(36, 23, 9, 0.48);
+
+    animation: t3-subir 1s 0.25s both;
+}
+
+/* MOLDURA INTERNA */
+
+.t3-painel-principal::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 18px;
+    border: 2px solid #c89458;
+    pointer-events: none;
+}
+
+/* ==========================================
+   TITULO DO QUADRO
+========================================== */
+
+.t3-painel-titulo {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.t3-painel-titulo h2 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(18px, 2.2vw, 32px);
+    font-weight: 700;
+
+    color: #27764b;
+
+    text-shadow: 0 2px 0 #ffffff;
+}
+
+.t3-painel-titulo p {
+    margin-top: 2px;
+
+    color: #7f6038;
+    font-size: clamp(10px, 1vw, 15px);
+    font-weight: 900;
+}
+
+/* ==========================================
+   CONTAINER DOS CARDS
+========================================== */
+
+.t3-cards {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+
+    min-height: 0;
+}
+
+/* ==========================================
+   ESTILO GERAL DOS CARDS
+========================================== */
+
+.t3-card {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 0;
+
+    padding: 12px 10px;
+
+    border: 4px solid #ffffff;
+    border-radius: 23px;
+
+    text-align: center;
+
+    box-shadow:
+        0 7px 0 rgba(66, 54, 35, 0.22),
+        0 12px 19px rgba(51, 52, 35, 0.18),
+        inset 0 3px 0 rgba(255, 255, 255, 0.7);
+
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        filter 0.28s ease;
+}
+
+/* BRILHO DOS CARDS */
+
+.t3-card::before {
+    content: "";
+
+    position: absolute;
+    top: -80%;
+    left: -90%;
+
+    width: 60%;
+    height: 260%;
+
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.42),
+            transparent);
+
+    transform: rotate(25deg);
+    transition: left 0.65s ease;
+
+    pointer-events: none;
+}
+
+.t3-card:hover::before {
+    left: 150%;
+}
+
+.t3-card:hover {
+    transform: translateY(-9px) scale(1.03);
+
+    box-shadow:
+        0 13px 0 rgba(66, 54, 35, 0.22),
+        0 20px 30px rgba(51, 52, 35, 0.28),
+        0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.t3-card:active {
+    transform: translateY(2px) scale(0.98);
+}
+
+/* ==========================================
+   CARD APRENDER - AZUL
+========================================== */
+
+.t3-card-aprender {
+    background: linear-gradient(180deg,
+            #b8f2ff,
+            #77d6f6 60%,
+            #5fbce8);
+}
+
+.t3-card-aprender h3 {
+    color: #075d9b;
+}
+
+.t3-card-aprender .t3-card-acao {
+    background: linear-gradient(#1ca3f3,
+            #086fc5);
+
+    box-shadow: 0 5px 0 #075a9d;
+}
+
+/* ==========================================
+   CARD JOGAR - AMARELO
+========================================== */
+
+.t3-card-jogar {
+    background: linear-gradient(180deg,
+            #fff8ad,
+            #ffe182 60%,
+            #ffd063);
+}
+
+.t3-card-jogar h3 {
+    color: #a15b0e;
+}
+
+.t3-card-jogar .t3-card-acao {
+    background: linear-gradient(#ffad21,
+            #f07808);
+
+    box-shadow: 0 5px 0 #af5208;
+}
+
+/* ==========================================
+   CARD EVOLUIR - VERDE
+========================================== */
+
+.t3-card-evoluir {
+    background: linear-gradient(180deg,
+            #c7ffb8,
+            #a1ed8b 60%,
+            #83d873);
+}
+
+.t3-card-evoluir h3 {
+    color: #277b2d;
+}
+
+.t3-card-evoluir .t3-card-acao {
+    background: linear-gradient(#7add48,
+            #30b947);
+
+    box-shadow: 0 5px 0 #208a39;
+}
+
+/* ==========================================
+   CONTEUDO DOS CARDS
+========================================== */
+
+.t3-card-icone {
+    display: grid;
+    place-items: center;
+
+    width: clamp(55px, 6vw, 84px);
+    height: clamp(55px, 6vw, 84px);
+
+    margin-bottom: 5px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.62);
+
+    box-shadow:
+        inset 0 3px 6px #ffffff,
+        0 6px 12px #00000015;
+
+    font-size: clamp(32px, 3.5vw, 52px);
+
+    transition: transform 0.3s ease;
+}
+
+.t3-card:hover .t3-card-icone {
+    transform: rotate(-8deg) scale(1.13);
+}
+
+.t3-card h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(20px, 2.1vw, 32px);
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.t3-card p {
+    max-width: 95%;
+    margin: 7px 0 13px;
+
+    color: #355047;
+    font-size: clamp(11px, 1.1vw, 16px);
+    font-weight: 900;
+    line-height: 1.3;
+}
+
+.t3-card-acao {
+    display: inline-block;
+
+    padding: 9px 23px;
+    border: 2px solid #ffffff;
+    border-radius: 100px;
+
+    color: white;
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(13px, 1.3vw, 18px);
+    font-weight: 600;
+
+    text-shadow: 0 2px 3px #00000035;
+
+    transition: transform 0.2s ease;
+}
+
+.t3-card:hover .t3-card-acao {
+    transform: scale(1.08);
+}
+
+/* ==========================================
+   RODAPE DO PAINEL
+========================================== */
+
+.t3-painel-rodape {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 8px;
+
+    padding: 7px 6px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(180deg,
+            #ab7138,
+            #7c461e);
+
+    box-shadow: inset 0 2px 3px #e3af73;
+}
+
+.t3-painel-rodape span {
+    flex: 1;
+
+    color: #fff5d9;
+    font-size: clamp(9px, 0.9vw, 14px);
+    font-weight: 900;
+    text-align: center;
+
+    text-shadow: 0 2px 3px #532805;
+}
+
+/* ==========================================
+   LUMI E CAPI
+========================================== */
+
+.t3-personagem {
+    position: absolute;
+    z-index: 4;
+
+    bottom: 8%;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 15px 17px rgba(11, 64, 47, 0.4));
+}
+
+/* LUMI - ESQUERDA */
+
+.t3-lumi {
+    left: 0.5%;
+    width: clamp(175px, 21vw, 340px);
+    max-height: 59%;
+
+    animation:
+        t3-entrada-lumi 1s ease-out both,
+        t3-flutuar 3.4s 1s ease-in-out infinite;
+}
+
+/* CAPI - DIREITA */
+
+.t3-capi {
+    right: 0.5%;
+    width: clamp(175px, 20vw, 325px);
+    max-height: 56%;
+
+    animation:
+        t3-entrada-capi 1s ease-out both,
+        t3-flutuar 3.8s 1s ease-in-out infinite;
+}
+
+/* ==========================================
+   NAVEGACAO
+========================================== */
+
+.t3-navegacao {
+    position: absolute;
+    z-index: 8;
+
+    left: 2.5%;
+    right: 2.5%;
+    bottom: 2.4%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.t3-botao {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 13px 26px;
+
+    border: 3px solid #e8f8c1;
+    border-radius: 100px;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(14px, 1.3vw, 19px);
+    font-weight: 600;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.t3-botao:hover {
+    transform: translateY(-5px) scale(1.04);
+    filter: brightness(1.06);
+}
+
+.t3-botao:active {
+    transform: translateY(2px);
+}
+
+/* VOLTAR */
+
+.t3-voltar {
+    background: linear-gradient(#ffffff,
+            #e7f4e6);
+
+    color: #256c45;
+
+    box-shadow:
+        0 6px 0 #4c9962,
+        0 12px 19px #00000045;
+}
+
+/* CONTINUAR */
+
+.t3-continuar,
+.t3-entendi {
+    background: linear-gradient(#b0f66b,
+            #53c446);
+
+    color: #1b6335;
+
+    box-shadow:
+        0 6px 0 #2c903c,
+        0 12px 19px #00000045;
+}
+
+/* INDICADOR */
+
+.t3-indicador {
+    padding: 8px 19px;
+
+    background: #fff9deed;
+    border: 2px solid #ffffff;
+    border-radius: 100px;
+
+    color: #267447;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    box-shadow: 0 5px 13px #00000035;
+}
+
+/* ==========================================
+   MODAL - PAINEL EXPLICATIVO
+========================================== */
+
+.t3-modal-fundo {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(4, 26, 19, 0.78);
+    backdrop-filter: blur(8px);
+}
+
+.t3-modal {
+    position: relative;
+
+    width: min(92vw, 550px);
+    max-height: 90vh;
+    overflow-y: auto;
+
+    padding: 29px 32px;
+
+    border: 6px solid #b17b3c;
+    border-radius: 29px;
+
+    background:
+        linear-gradient(145deg,
+            #fffdf0,
+            #f4dfba);
+
+    box-shadow:
+        inset 0 0 0 3px #ffe3a4,
+        0 12px 0 #795024,
+        0 25px 50px #00000075;
+
+    text-align: center;
+
+    animation: t3-modal-aparecer 0.35s ease-out;
+}
+
+/* FECHAR */
+
+.t3-fechar {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #237e4a;
+    color: white;
+
+    font-size: 28px;
+    font-weight: 900;
+
+    transition: transform 0.2s ease;
+}
+
+.t3-fechar:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* ETIQUETA */
+
+.t3-modal-etiqueta {
+    display: inline-block;
+
+    padding: 7px 17px;
+
+    border-radius: 100px;
+    background: #e2f8d3;
+
+    color: #287448;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+/* ICONE */
+
+.t3-modal-icone {
+    margin: 13px auto 8px;
+
+    font-size: 55px;
+}
+
+/* TITULO */
+
+.t3-modal h2 {
+    margin-bottom: 14px;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(27px, 3vw, 40px);
+
+    color: #26744b;
+}
+
+/* TEXTO */
+
+.t3-modal p {
+    color: #465542;
+
+    font-size: clamp(15px, 1.3vw, 18px);
+    line-height: 1.6;
+    font-weight: 800;
+}
+
+/* DESTAQUE */
+
+.t3-modal-destaque {
+    margin: 20px 0;
+    padding: 16px;
+
+    border-radius: 16px;
+    border-left: 6px solid #52ae44;
+
+    background: #e5f7d9;
+
+    color: #246241;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.5;
+
+    text-align: left;
+}
+
+.t3-entendi {
+    margin-top: 6px;
+}
+
+/* ==========================================
+   ANIMACOES
+========================================== */
+
+@keyframes t3-entrada-cenario {
+
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+        filter: blur(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes t3-brilho {
+
+    from {
+        opacity: 0.55;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes t3-descer {
+
+    from {
+        opacity: 0;
+        translate: 0 -70px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t3-subir {
+
+    from {
+        opacity: 0;
+        translate: 0 80px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t3-entrada-lumi {
+
+    from {
+        opacity: 0;
+        translate: -120px 0;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t3-entrada-capi {
+
+    from {
+        opacity: 0;
+        translate: 120px 0;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t3-flutuar {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -13px;
+    }
+}
+
+@keyframes t3-modal-aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ==========================================
+   RESPONSIVIDADE - NOTEBOOK
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .t3-cabecalho {
+        width: 67%;
+    }
+
+    .t3-painel-principal {
+        width: 69%;
+        padding: 11px;
+    }
+
+    .t3-cards {
+        gap: 8px;
+    }
+
+    .t3-lumi,
+    .t3-capi {
+        width: 23%;
+    }
+
+    .t3-card {
+        padding: 9px 6px;
+    }
+
+    .t3-card p {
+        margin: 6px 0 9px;
+    }
+}
+
+/* ==========================================
+   TELAS BAIXAS
+========================================== */
+
+@media (max-height: 680px) and (min-width: 781px) {
+
+    .t3-cabecalho {
+        top: 1.5%;
+    }
+
+    .t3-placa-logo {
+        padding: 6px 15px 9px;
+    }
+
+    .t3-logo {
+        font-size: clamp(41px, 4.3vw, 65px);
+    }
+
+    .t3-painel-principal {
+        top: 28%;
+        height: 57%;
+        padding: 9px;
+        gap: 5px;
+    }
+
+    .t3-painel-titulo h2 {
+        font-size: 23px;
+    }
+
+    .t3-card-icone {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 3px;
+        font-size: 30px;
+    }
+
+    .t3-card h3 {
+        font-size: 22px;
+    }
+
+    .t3-card p {
+        margin: 4px 0 7px;
+        font-size: 11px;
+    }
+
+    .t3-card-acao {
+        padding: 6px 13px;
+        font-size: 13px;
+    }
+
+    .t3-personagem {
+        bottom: 8%;
+        max-height: 52%;
+    }
+}
+
+/* ==========================================
+   TABLET E CELULAR
+========================================== */
+
+@media (max-width: 780px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .t3-apresentacao {
+        height: auto;
+    }
+
+    .t3-cena {
+        min-height: 100dvh;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 20px 15px 25px;
+        gap: 22px;
+    }
+
+    .t3-fundo {
+        position: fixed;
+    }
+
+    .t3-iluminacao {
+        position: fixed;
+    }
+
+    .t3-cabecalho {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+
+        width: min(100%, 600px);
+    }
+
+    .t3-placa-logo {
+        padding: 14px 18px;
+    }
+
+    .t3-logo {
+        font-size: clamp(42px, 9vw, 68px);
+    }
+
+    .t3-painel-principal {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+
+        order: 2;
+
+        width: min(100%, 600px);
+        height: auto;
+        padding: 14px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .t3-cards {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .t3-card {
+        min-height: 190px;
+        padding: 16px;
+    }
+
+    .t3-card-icone {
+        width: 64px;
+        height: 64px;
+    }
+
+    .t3-card h3 {
+        font-size: 26px;
+    }
+
+    .t3-card p {
+        font-size: 14px;
+    }
+
+    .t3-painel-rodape {
+        flex-wrap: wrap;
+    }
+
+    .t3-painel-rodape span {
+        flex: 1 1 100%;
+        font-size: 12px;
+    }
+
+    .t3-personagem {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+
+        width: 42%;
+        max-width: 210px;
+        max-height: none;
+
+        object-fit: contain;
+    }
+
+    .t3-lumi {
+        order: 1;
+        align-self: flex-start;
+    }
+
+    .t3-capi {
+        order: 3;
+        align-self: flex-end;
+    }
+
+    .t3-navegacao {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        order: 4;
+
+        width: 100%;
+    }
+
+    .t3-botao {
+        padding: 11px 15px;
+        font-size: 14px;
+    }
+}
+
+/* ==========================================
+   ACESSIBILIDADE
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* ==========================================
+   CARD EXPLORADO
+========================================== */
+
+.t3-card.t3-visitado {
+    border-color: #eaffaa;
+}
+
+.t3-card.t3-visitado::after {
+    content: "✓";
+
+    position: absolute;
+    top: 9px;
+    right: 11px;
+
+    display: grid;
+    place-items: center;
+
+    width: 27px;
+    height: 27px;
+
+    border-radius: 50%;
+
+    background: #2eaf58;
+    color: white;
+
+    font-size: 17px;
+    font-weight: 900;
+
+    box-shadow: 0 3px 8px #0003;
+}

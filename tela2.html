@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoEnergia | O Problema Ambiental</title>
+
+    <link rel="stylesheet" href="tela2.css">
+    <script src="tela2.js" defer></script>
+</head>
+
+<body>
+
+    <main class="t2-cena">
+
+        <!-- CENARIO -->
+        <div class="t2-fundo"></div>
+        <div class="t2-vinheta"></div>
+
+        <!-- TITULO -->
+        <header class="t2-placa">
+
+            <span class="t2-etapa">
+                ETAPA 02 • NOSSO PLANETA
+            </span>
+
+            <h1>
+                O problema
+                <span>ambiental</span>
+            </h1>
+
+            <p>
+                Clique nos alertas para descobrir
+                o que está acontecendo com a natureza.
+            </p>
+
+        </header>
+
+        <!-- PROGRESSO -->
+        <div class="t2-progresso" aria-live="polite">
+            🌱 <span id="t2-contagem">0 de 4 explorados</span>
+        </div>
+
+        <!-- ALERTA: POLUICAO DO AR -->
+        <button class="t2-ponto t2-ar" data-problema="ar" type="button">
+
+            <span class="t2-simbolo">☁</span>
+            <span>Poluição do ar</span>
+            <span class="t2-alerta">!</span>
+
+        </button>
+
+        <!-- ALERTA: ENERGIA -->
+        <button class="t2-ponto t2-energia" data-problema="energia" type="button">
+
+            <span class="t2-simbolo">⚡</span>
+            <span>Desperdício de energia</span>
+            <span class="t2-alerta">!</span>
+
+        </button>
+
+        <!-- ALERTA: AGUA -->
+        <button class="t2-ponto t2-agua" data-problema="agua" type="button">
+
+            <span class="t2-simbolo">💧</span>
+            <span>Poluição da água</span>
+            <span class="t2-alerta">!</span>
+
+        </button>
+
+        <!-- ALERTA: LIXO -->
+        <button class="t2-ponto t2-lixo" data-problema="lixo" type="button">
+
+            <span class="t2-simbolo">♻</span>
+            <span>Excesso de lixo</span>
+            <span class="t2-alerta">!</span>
+
+        </button>
+
+        <!-- PERSONAGENS -->
+        <img class="t2-personagem t2-lumi" src="assets/personagens/lumi.png" alt="Lumi">
+
+        <img class="t2-personagem t2-capi" src="assets/personagens/capi.png" alt="Capi">
+
+        <!-- FALA DA LUMI -->
+        <div class="t2-fala">
+
+            <span class="t2-nome">LUMI</span>
+
+            <p>
+                Nem tudo está como deveria...
+                <strong>Explore os quatro alertas!</strong>
+            </p>
+
+        </div>
+
+        <!-- NAVEGACAO -->
+        <nav class="t2-navegacao">
+
+            <a class="t2-botao t2-voltar" href="index.html">
+                ← Voltar
+            </a>
+
+            <span class="t2-numero">
+                02 / 10
+            </span>
+
+            <button class="t2-botao t2-continuar" id="t2-continuar" type="button">
+                Continuar ➜
+            </button>
+
+        </nav>
+
+        <!-- PAINEL INTERATIVO -->
+        <div class="t2-modal-fundo" id="t2-modal" hidden>
+
+            <section class="t2-modal" role="dialog" aria-modal="true" aria-labelledby="t2-modal-titulo">
+
+                <button class="t2-fechar" id="t2-fechar" type="button" aria-label="Fechar">
+                    ×
+                </button>
+
+                <span class="t2-modal-etiqueta" id="t2-modal-etiqueta">
+                    ALERTA AMBIENTAL
+                </span>
+
+                <h2 id="t2-modal-titulo"></h2>
+
+                <p id="t2-modal-texto"></p>
+
+                <div class="t2-dica" id="t2-dica">
+                </div>
+
+                <button class="t2-botao t2-entendi" id="t2-entendi" type="button">
+                    Entendi! ✓
+                </button>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script src="navegacao.js"></script>
+
+
+</body>
+
+</html>

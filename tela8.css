@@ -1,0 +1,1580 @@
+/* ==========================================
+   ECOENERGIA - TELA 8
+   CADA CONQUISTA CONTA!
+
+   APRESENTACAO CINEMATOGRAFICA
+   PAINEIS ORGANIZADOS PARA PROJETOR
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap');
+
+/* ==========================================
+   CONFIGURACOES GERAIS
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #124b3f;
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 4px solid #fff17b;
+    outline-offset: 4px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* ==========================================
+   ESTRUTURA PRINCIPAL
+========================================== */
+
+.t8-apresentacao {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+}
+
+.t8-cena {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* ==========================================
+   CENARIO DE FUNDO
+========================================== */
+
+.t8-fundo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image:
+        url("assets/telas/fundo-tela-8.png");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    animation:
+        t8-entrada-fundo 1.4s ease-out both;
+}
+
+/* ILUMINACAO */
+
+.t8-iluminacao {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 50% 40%,
+            rgba(255, 241, 157, 0.12),
+            transparent 45%),
+        linear-gradient(180deg,
+            rgba(8, 48, 41, 0.04),
+            transparent 45%,
+            rgba(8, 38, 26, 0.22));
+}
+
+/* ==========================================
+   TITULO PRINCIPAL
+========================================== */
+
+.t8-cabecalho {
+    position: absolute;
+
+    top: 1.5%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(53%, 780px);
+
+    z-index: 9;
+}
+
+.t8-placa-titulo {
+    position: relative;
+
+    padding: 11px 23px 14px;
+
+    text-align: center;
+
+    border: 5px solid #8b4d1d;
+    border-radius: 27px;
+
+    background:
+        repeating-linear-gradient(0deg,
+            transparent 0px,
+            transparent 18px,
+            rgba(89, 49, 20, 0.10) 20px,
+            transparent 23px),
+        linear-gradient(180deg,
+            #bd7b3e,
+            #985720 60%,
+            #7b4318);
+
+    box-shadow:
+        inset 0 3px 0 #ebb679,
+        inset 0 -4px 0 #683715,
+        0 7px 0 #6a3a18,
+        0 16px 28px rgba(23, 11, 3, 0.35);
+
+    animation:
+        t8-entrada-titulo 0.9s ease-out both;
+}
+
+/* FOLHAS DECORATIVAS */
+
+.t8-placa-titulo::before,
+.t8-placa-titulo::after {
+    content: "";
+    position: absolute;
+
+    width: 40px;
+    height: 26px;
+
+    border-radius: 0 100% 0 100%;
+
+    background:
+        linear-gradient(135deg,
+            #c4f56c,
+            #42a338);
+
+    box-shadow: 7px 4px 0 #2f7d2d;
+}
+
+.t8-placa-titulo::before {
+    top: -10px;
+    left: 12px;
+
+    transform: rotate(-28deg);
+}
+
+.t8-placa-titulo::after {
+    top: -10px;
+    right: 12px;
+
+    transform: rotate(62deg);
+}
+
+/* TITULO */
+
+.t8-placa-titulo h1 {
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: clamp(30px, 3.4vw, 58px);
+    font-weight: 700;
+    line-height: 1.05;
+
+    color: #fff0c9;
+
+    text-shadow:
+        0 3px 0 #a15d20,
+        0 6px 0 #704017,
+        0 10px 15px rgba(35, 16, 4, 0.36);
+}
+
+.t8-placa-titulo h1 span {
+    color: #ffd34e;
+
+    text-shadow:
+        0 3px 0 #bd7520,
+        0 6px 0 #875013,
+        0 10px 15px rgba(35, 16, 4, 0.36);
+}
+
+.t8-placa-titulo p {
+    margin-top: 6px;
+
+    color: #fff8e6;
+
+    font-size: clamp(11px, 1vw, 17px);
+    font-weight: 900;
+    line-height: 1.25;
+
+    text-shadow: 0 2px 3px #5a2b0e;
+}
+
+/* ==========================================
+   AREA PRINCIPAL DOS PAINEIS
+
+   REGIAO CENTRAL:
+   20% A 60% DA ALTURA
+
+   DIVIDIDA EM DUAS COLUNAS
+========================================== */
+
+.t8-area-paineis {
+    position: absolute;
+
+    top: 20%;
+    left: 18%;
+    width: 64%;
+    height: 40%;
+
+    z-index: 5;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) minmax(0, 1fr);
+
+    gap: 2%;
+
+    pointer-events: none;
+}
+
+/* ==========================================
+   MEU PROGRESSO
+   COLUNA ESQUERDA
+========================================== */
+
+.t8-area-progresso {
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation:
+        t8-entrada-progresso 1s 0.25s ease-out both;
+}
+
+.t8-painel-progresso {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 12px 18px rgba(22, 33, 11, 0.36));
+}
+
+/* ==========================================
+   PAINEIS DA DIREITA
+========================================== */
+
+.t8-paineis-direita {
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-rows:
+        minmax(0, 43fr) minmax(0, 57fr);
+
+    row-gap: 2%;
+}
+
+/* ==========================================
+   MINHAS LIGAS
+========================================== */
+
+.t8-area-ligas {
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation:
+        t8-entrada-ligas 1s 0.5s ease-out both;
+}
+
+.t8-painel-ligas {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 10px 15px rgba(22, 33, 11, 0.34));
+}
+
+/* ==========================================
+   MINHAS CONQUISTAS
+========================================== */
+
+.t8-area-conquistas {
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation:
+        t8-entrada-conquistas 1s 0.75s ease-out both;
+}
+
+.t8-painel-conquistas {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 10px 15px rgba(22, 33, 11, 0.34));
+}
+
+/* ==========================================
+   ECOMOEDAS + ITENS DESBLOQUEAVEIS
+
+   PAINEL INFERIOR
+   SEM INVADIR OS PAINEIS DE CIMA
+========================================== */
+
+.t8-area-ecomoedas {
+    position: absolute;
+
+    top: 61%;
+    left: 18%;
+
+    width: 64%;
+    height: 25%;
+
+    z-index: 6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: none;
+
+    animation:
+        t8-entrada-ecomoedas 1s 0.95s ease-out both;
+}
+
+.t8-painel-ecomoedas {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+
+    filter:
+        drop-shadow(0 12px 18px rgba(22, 33, 11, 0.36));
+}
+
+/* ==========================================
+   LUMI - LADO ESQUERDO
+
+   ESPACO RESERVADO ATE 17%
+========================================== */
+
+.t8-area-lumi {
+    position: absolute;
+
+    left: 0.5%;
+    bottom: 10%;
+
+    width: 16%;
+    height: 51%;
+
+    z-index: 4;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    pointer-events: none;
+}
+
+.t8-lumi {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: bottom center;
+
+    user-select: none;
+
+    filter:
+        drop-shadow(0 14px 19px rgba(7, 51, 61, 0.4));
+
+    animation:
+        t8-entrada-lumi 1s 0.35s ease-out both,
+        t8-flutuar 3.7s 1.35s ease-in-out infinite;
+}
+
+/* ==========================================
+   CAPI - LADO DIREITO
+
+   ESPACO RESERVADO APOS 83%
+========================================== */
+
+.t8-area-capi {
+    position: absolute;
+
+    right: 0.5%;
+    bottom: 10%;
+
+    width: 16%;
+    height: 43%;
+
+    z-index: 4;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    pointer-events: none;
+}
+
+.t8-capi {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: bottom center;
+
+    user-select: none;
+
+    filter:
+        drop-shadow(0 14px 18px rgba(34, 40, 13, 0.36));
+
+    animation:
+        t8-entrada-capi 1s 0.5s ease-out both,
+        t8-pular 3.2s 1.5s ease-in-out infinite;
+}
+
+/* ==========================================
+   BOTAO DE RECOMPENSA
+
+   CENTRALIZADO ABAIXO DOS PAINEIS
+========================================== */
+
+.t8-area-recompensa {
+    position: absolute;
+
+    left: 50%;
+    bottom: 8%;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38%;
+
+    animation:
+        t8-entrada-recompensa 0.9s 1.2s ease-out both;
+}
+
+.t8-botao-recompensa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    width: 100%;
+    padding: 10px 18px;
+
+    border: 4px solid #fff39c;
+    border-radius: 100px;
+
+    background:
+        linear-gradient(180deg,
+            #b8fb5a,
+            #54c739 55%,
+            #2fa42c);
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: clamp(15px, 1.45vw, 24px);
+    font-weight: 700;
+
+    color: #fffdeb;
+
+    text-shadow:
+        0 2px 0 #266b25;
+
+    box-shadow:
+        0 6px 0 #1e8735,
+        0 12px 25px rgba(25, 64, 24, 0.37),
+        inset 0 3px 0 rgba(255, 255, 255, 0.5);
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+.t8-botao-recompensa:hover {
+    transform: translateY(-4px) scale(1.04);
+    filter: brightness(1.1);
+}
+
+.t8-botao-recompensa:active {
+    transform: translateY(2px);
+}
+
+.t8-botao-recompensa span {
+    font-size: 1.25em;
+}
+
+/* ==========================================
+   MODAL DE RECOMPENSA
+
+   APARECE QUANDO O JS ATIVAR
+========================================== */
+
+.t8-modal {
+    position: absolute;
+    inset: 0;
+
+    z-index: 30;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 22px;
+
+    background: rgba(8, 35, 24, 0.76);
+
+    backdrop-filter: blur(7px);
+}
+
+.t8-modal-conteudo {
+    width: min(92%, 500px);
+
+    padding: 26px 25px 28px;
+
+    text-align: center;
+
+    border: 6px solid #b77e34;
+    border-radius: 30px;
+
+    background:
+        linear-gradient(180deg,
+            #fff8db,
+            #f7dba1);
+
+    box-shadow:
+        0 12px 0 #85501e,
+        0 24px 50px rgba(0, 0, 0, 0.4);
+
+    animation:
+        t8-modal-aparecer 0.5s ease-out both;
+}
+
+.t8-modal-icone {
+    font-size: 65px;
+    line-height: 1.2;
+}
+
+.t8-modal-conteudo h2 {
+    margin-top: 7px;
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: clamp(26px, 2.5vw, 39px);
+
+    color: #2d8f42;
+}
+
+.t8-modal-conteudo p {
+    margin-top: 12px;
+
+    color: #68451f;
+
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+/* RECOMPENSAS GANHAS */
+
+.t8-recompensas-ganhas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin: 24px 0;
+}
+
+.t8-recompensas-ganhas span {
+    padding: 12px 16px;
+
+    background: #fff3c4;
+
+    border: 3px solid #dba54f;
+    border-radius: 15px;
+
+    font-family: 'Fredoka', sans-serif;
+
+    color: #86601d;
+
+    font-size: 19px;
+    font-weight: 700;
+}
+
+/* FECHAR MODAL */
+
+.t8-fechar-modal {
+    padding: 13px 26px;
+
+    border: 3px solid #e4ffbd;
+    border-radius: 100px;
+
+    background:
+        linear-gradient(#a4ee5b,
+            #43b744);
+
+    color: #1e622c;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+
+    box-shadow: 0 6px 0 #278638;
+
+    transition: transform 0.2s ease;
+}
+
+.t8-fechar-modal:hover {
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   NAVEGACAO INFERIOR
+========================================== */
+
+.t8-navegacao {
+    position: absolute;
+
+    left: 2.5%;
+    right: 2.5%;
+    bottom: 2.5%;
+
+    z-index: 12;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+
+    animation:
+        t8-entrada-navegacao 0.9s 1.3s ease-out both;
+}
+
+/* BOTOES */
+
+.t8-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 13px 25px;
+
+    border: 3px solid #eaf7be;
+    border-radius: 100px;
+
+    font-family: 'Fredoka', sans-serif;
+
+    font-size: clamp(14px, 1.2vw, 19px);
+    font-weight: 600;
+
+    transition:
+        transform 0.22s ease,
+        filter 0.22s ease;
+}
+
+.t8-botao:hover {
+    transform: translateY(-4px) scale(1.04);
+    filter: brightness(1.08);
+}
+
+.t8-botao:active {
+    transform: translateY(2px);
+}
+
+/* VOLTAR */
+
+.t8-voltar {
+    background:
+        linear-gradient(#ffffff,
+            #ebf6e8);
+
+    color: #236742;
+
+    box-shadow:
+        0 7px 0 #49915e,
+        0 13px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* CONTINUAR */
+
+.t8-continuar {
+    background:
+        linear-gradient(#b5f665,
+            #54c345);
+
+    color: #1b6334;
+
+    box-shadow:
+        0 7px 0 #2e8c3a,
+        0 13px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* CONTADOR */
+
+.t8-indicador {
+    padding: 8px 18px;
+
+    border: 2px solid #ffffff;
+    border-radius: 100px;
+
+    background: rgba(255, 249, 223, 0.93);
+
+    color: #266d44;
+
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   ANIMACOES
+========================================== */
+
+@keyframes t8-entrada-fundo {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+        filter: blur(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes t8-entrada-titulo {
+    from {
+        opacity: 0;
+        translate: 0 -60px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t8-entrada-progresso {
+    from {
+        opacity: 0;
+        transform: translateX(-40px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes t8-entrada-ligas {
+    from {
+        opacity: 0;
+        transform: translateX(45px) scale(0.93);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes t8-entrada-conquistas {
+    from {
+        opacity: 0;
+        transform: translateX(45px) scale(0.93);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes t8-entrada-ecomoedas {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes t8-entrada-lumi {
+    from {
+        opacity: 0;
+        translate: -100px 0;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t8-entrada-capi {
+    from {
+        opacity: 0;
+        translate: 100px 0;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t8-flutuar {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -9px;
+    }
+}
+
+@keyframes t8-pular {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -10px;
+    }
+}
+
+@keyframes t8-entrada-recompensa {
+    from {
+        opacity: 0;
+        translate: 0 25px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t8-entrada-navegacao {
+    from {
+        opacity: 0;
+        translate: 0 25px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t8-modal-aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ==========================================
+   NOTEBOOKS MENORES
+========================================== */
+
+@media (max-width: 1200px) and (min-width: 781px) {
+
+    .t8-cabecalho {
+        width: 55%;
+    }
+
+    .t8-placa-titulo {
+        padding: 9px 14px 11px;
+    }
+
+    .t8-placa-titulo h1 {
+        font-size: clamp(28px, 3.2vw, 45px);
+    }
+
+    .t8-area-paineis {
+        left: 17%;
+        width: 66%;
+    }
+
+    .t8-area-ecomoedas {
+        left: 17%;
+        width: 66%;
+    }
+
+    .t8-area-lumi {
+        width: 15.5%;
+    }
+
+    .t8-area-capi {
+        width: 15.5%;
+    }
+
+    .t8-area-recompensa {
+        width: 42%;
+    }
+
+    .t8-botao-recompensa {
+        font-size: 16px;
+    }
+}
+
+/* ==========================================
+   TELAS COM POUCA ALTURA
+========================================== */
+
+@media (max-height: 680px) and (min-width: 781px) {
+
+    .t8-cabecalho {
+        top: 0.8%;
+    }
+
+    .t8-placa-titulo {
+        padding: 7px 13px 9px;
+    }
+
+    .t8-placa-titulo h1 {
+        font-size: clamp(26px, 2.8vw, 42px);
+    }
+
+    .t8-placa-titulo p {
+        font-size: 11px;
+    }
+
+    .t8-area-paineis {
+        top: 19%;
+        height: 40%;
+    }
+
+    .t8-area-ecomoedas {
+        top: 60%;
+        height: 25%;
+    }
+
+    .t8-area-lumi {
+        height: 46%;
+    }
+
+    .t8-area-capi {
+        height: 40%;
+    }
+
+    .t8-area-recompensa {
+        bottom: 8%;
+    }
+
+    .t8-botao-recompensa {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    .t8-botao {
+        padding: 9px 17px;
+        font-size: 14px;
+    }
+
+    .t8-indicador {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
+}
+
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media (min-width: 561px) and (max-width: 780px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .t8-apresentacao,
+    .t8-cena {
+        height: auto;
+        min-height: 100dvh;
+    }
+
+    .t8-cena {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 18px;
+        padding: 20px 16px 28px;
+    }
+
+    .t8-fundo,
+    .t8-iluminacao {
+        position: fixed;
+    }
+
+    .t8-cabecalho {
+        position: relative;
+        top: auto;
+        left: auto;
+
+        transform: none;
+
+        width: min(100%, 620px);
+        order: 1;
+    }
+
+    .t8-area-paineis {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 100%;
+        height: auto;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+
+        order: 2;
+    }
+
+    .t8-area-progresso {
+        width: 100%;
+        height: auto;
+    }
+
+    .t8-painel-progresso {
+        width: min(100%, 540px);
+        height: auto;
+    }
+
+    .t8-paineis-direita {
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 16px;
+    }
+
+    .t8-area-ligas,
+    .t8-area-conquistas {
+        height: auto;
+    }
+
+    .t8-painel-ligas,
+    .t8-painel-conquistas {
+        width: 100%;
+        height: auto;
+    }
+
+    .t8-area-ecomoedas {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 100%;
+        height: auto;
+
+        order: 3;
+    }
+
+    .t8-painel-ecomoedas {
+        width: 100%;
+        height: auto;
+    }
+
+    .t8-area-lumi,
+    .t8-area-capi {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 28%;
+        height: auto;
+    }
+
+    .t8-lumi,
+    .t8-capi {
+        width: 100%;
+        height: auto;
+    }
+
+    .t8-area-lumi {
+        align-self: flex-start;
+        order: 4;
+    }
+
+    .t8-area-capi {
+        align-self: flex-end;
+        order: 5;
+    }
+
+    .t8-area-recompensa {
+        position: relative;
+
+        left: auto;
+        bottom: auto;
+
+        transform: none;
+
+        width: min(100%, 470px);
+        order: 6;
+    }
+
+    .t8-navegacao {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 100%;
+        order: 7;
+    }
+
+    .t8-modal {
+        position: fixed;
+    }
+}
+
+/* ==========================================
+   CELULARES
+========================================== */
+
+@media (max-width: 560px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .t8-apresentacao,
+    .t8-cena {
+        height: auto;
+        min-height: 100dvh;
+    }
+
+    .t8-cena {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 18px 12px 28px;
+        gap: 18px;
+    }
+
+    .t8-fundo,
+    .t8-iluminacao {
+        position: fixed;
+    }
+
+    /* TITULO */
+
+    .t8-cabecalho {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        transform: none;
+
+        width: 100%;
+        order: 1;
+    }
+
+    .t8-placa-titulo {
+        padding: 10px 13px;
+    }
+
+    .t8-placa-titulo h1 {
+        font-size: clamp(28px, 7vw, 42px);
+    }
+
+    .t8-placa-titulo p {
+        font-size: 12px;
+    }
+
+    /* PAINEIS */
+
+    .t8-area-paineis {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 18px;
+        order: 2;
+    }
+
+    .t8-area-progresso {
+        width: 100%;
+        height: auto;
+    }
+
+    .t8-painel-progresso {
+        width: 100%;
+        height: auto;
+    }
+
+    .t8-paineis-direita {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        height: auto;
+
+        gap: 16px;
+    }
+
+    .t8-area-ligas,
+    .t8-area-conquistas {
+        width: 100%;
+        height: auto;
+    }
+
+    .t8-painel-ligas,
+    .t8-painel-conquistas {
+        width: 100%;
+        height: auto;
+    }
+
+    /* ECOMOEDAS */
+
+    .t8-area-ecomoedas {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 100%;
+        height: auto;
+
+        order: 3;
+    }
+
+    .t8-painel-ecomoedas {
+        width: 100%;
+        height: auto;
+    }
+
+    /* PERSONAGENS */
+
+    .t8-area-lumi,
+    .t8-area-capi {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 42%;
+        height: auto;
+    }
+
+    .t8-lumi,
+    .t8-capi {
+        width: 100%;
+        height: auto;
+    }
+
+    .t8-area-lumi {
+        align-self: flex-start;
+        order: 4;
+    }
+
+    .t8-area-capi {
+        align-self: flex-end;
+        order: 5;
+    }
+
+    /* RECOMPENSA */
+
+    .t8-area-recompensa {
+        position: relative;
+
+        left: auto;
+        bottom: auto;
+
+        transform: none;
+
+        width: 100%;
+        order: 6;
+    }
+
+    .t8-botao-recompensa {
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+
+    /* MODAL */
+
+    .t8-modal {
+        position: fixed;
+        padding: 15px;
+    }
+
+    .t8-modal-conteudo {
+        padding: 20px 15px;
+    }
+
+    .t8-modal-conteudo h2 {
+        font-size: 26px;
+    }
+
+    .t8-modal-conteudo p {
+        font-size: 15px;
+    }
+
+    .t8-recompensas-ganhas span {
+        font-size: 15px;
+    }
+
+    /* NAVEGACAO */
+
+    .t8-navegacao {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 100%;
+        gap: 6px;
+
+        order: 7;
+    }
+
+    .t8-botao {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .t8-indicador {
+        padding: 5px 8px;
+
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+}
+
+/* ==========================================
+   ACESSIBILIDADE
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* ==========================================
+   TELA 8 - AJUSTE DOS PAINEIS
+   MAIORES E COM MENOS ESPACAMENTO
+========================================== */
+
+@media (min-width: 781px) {
+
+    /* AREA PRINCIPAL MAIS AMPLA */
+
+    .t8-area-paineis {
+        top: 18%;
+        left: 13%;
+
+        width: 74%;
+        height: 49%;
+
+        grid-template-columns: 43% 57%;
+        gap: 0;
+    }
+
+    /* PAINEL MEU PROGRESSO */
+
+    .t8-area-progresso {
+        width: 100%;
+        height: 100%;
+    }
+
+    .t8-painel-progresso {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        transform: scale(1.08);
+    }
+
+    /* LIGAS E CONQUISTAS MAIS PROXIMAS */
+
+    .t8-paineis-direita {
+        display: grid;
+
+        grid-template-rows: 1fr 1fr;
+        row-gap: 0;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    .t8-area-ligas,
+    .t8-area-conquistas {
+        width: 100%;
+        height: 100%;
+    }
+
+    .t8-painel-ligas,
+    .t8-painel-conquistas {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        transform: scale(1.06);
+    }
+
+    /* ECOMOEDAS E ITENS */
+
+    .t8-area-ecomoedas {
+        top: 65%;
+        left: 14%;
+
+        width: 72%;
+        height: 24%;
+
+        z-index: 6;
+    }
+
+    .t8-painel-ecomoedas {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        transform: scale(1.10);
+
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* BOTAO DE RECOMPENSA */
+
+    .t8-area-recompensa {
+        bottom: 7%;
+    }
+
+}

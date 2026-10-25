@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoEnergia | Conheça Nossa Solução</title>
+
+    <!-- ESTILOS DA TELA 3 -->
+    <link rel="stylesheet" href="tela3.css">
+
+    <!-- INTERACOES DA TELA 3 -->
+    <script src="tela3.js" defer></script>
+</head>
+
+<body>
+
+    <main class="t3-apresentacao">
+
+        <!-- =========================
+             TELA 3 - NOSSA SOLUCAO
+        ========================== -->
+
+        <section class="t3-cena" id="tela-3">
+
+            <!-- CENARIO DE FUNDO -->
+            <div class="t3-fundo" aria-hidden="true">
+            </div>
+
+            <!-- ILUMINACAO DO CENARIO -->
+            <div class="t3-iluminacao" aria-hidden="true">
+            </div>
+
+            <!-- =====================
+                 LOGOTIPO E TITULO
+            ====================== -->
+
+            <header class="t3-cabecalho">
+
+                <div class="t3-placa-logo">
+
+                    <span class="t3-etiqueta">
+                        NOSSA SOLUÇÃO
+                    </span>
+
+                    <h1 class="t3-logo">
+                        Eco<span>Energia</span>
+                    </h1>
+
+                    <p class="t3-subtitulo">
+                        Aprender a cuidar do planeta
+                        nunca foi tão divertido!
+                    </p>
+
+                </div>
+
+            </header>
+
+            <!-- =====================
+                 PAINEL PRINCIPAL
+            ====================== -->
+
+            <div class="t3-painel-principal">
+
+                <div class="t3-painel-titulo">
+
+                    <h2>
+                        Descubra nossa aventura!
+                    </h2>
+
+                    <p>
+                        Três maneiras de aprender
+                        e transformar o mundo.
+                    </p>
+
+                </div>
+
+                <!-- TRES CARDS INTERATIVOS -->
+                <div class="t3-cards">
+
+                    <!-- CARD 1 - APRENDER -->
+                    <button class="t3-card t3-card-aprender" id="t3-aprender" data-recurso="aprender" type="button">
+
+                        <div class="t3-card-icone" aria-hidden="true">
+                            📖
+                        </div>
+
+                        <h3>Aprender</h3>
+
+                        <p>
+                            Descubra como economizar
+                            água e energia.
+                        </p>
+
+                        <span class="t3-card-acao">
+                            Explorar ➜
+                        </span>
+
+                    </button>
+
+                    <!-- CARD 2 - JOGAR -->
+                    <button class="t3-card t3-card-jogar" id="t3-jogar" data-recurso="jogar" type="button">
+
+                        <div class="t3-card-icone" aria-hidden="true">
+                            🎮
+                        </div>
+
+                        <h3>Jogar</h3>
+
+                        <p>
+                            Participe de quizzes
+                            e desafios divertidos.
+                        </p>
+
+                        <span class="t3-card-acao">
+                            Explorar ➜
+                        </span>
+
+                    </button>
+
+                    <!-- CARD 3 - EVOLUIR -->
+                    <button class="t3-card t3-card-evoluir" id="t3-evoluir" data-recurso="evoluir" type="button">
+
+                        <div class="t3-card-icone" aria-hidden="true">
+                            🏆
+                        </div>
+
+                        <h3>Evoluir</h3>
+
+                        <p>
+                            Ganhe XP, EcoMoedas
+                            e recompensas.
+                        </p>
+
+                        <span class="t3-card-acao">
+                            Explorar ➜
+                        </span>
+
+                    </button>
+
+                </div>
+
+                <!-- RODAPE DO PAINEL -->
+                <div class="t3-painel-rodape">
+
+                    <span>🌱 Atividades educativas</span>
+
+                    <span>⭐ Quizzes e desafios</span>
+
+                    <span>🏆 Progresso e conquistas</span>
+
+                </div>
+
+            </div>
+
+            <!-- =====================
+                 PERSONAGENS
+            ====================== -->
+
+            <!-- LUMI APRESENTANDO -->
+            <img src="assets/personagens/lumi-tela-3.png" alt="Lumi apresentando os recursos do EcoEnergia"
+                class="t3-personagem t3-lumi" id="t3-lumi">
+
+            <!-- CAPI ANIMADA -->
+            <img src="assets/personagens/capi-tela-3.png" alt="Capi animada com a nova aventura"
+                class="t3-personagem t3-capi" id="t3-capi">
+
+            <!-- =====================
+                 NAVEGACAO
+            ====================== -->
+
+            <nav class="t3-navegacao" aria-label="Navegação da apresentação">
+
+                <a class="t3-botao t3-voltar" href="tela2.html">
+
+                    ← Voltar
+
+                </a>
+
+                <span class="t3-indicador">
+                    03 / 10
+                </span>
+
+                <button class="t3-botao t3-continuar" id="t3-continuar" type="button">
+
+                    Continuar ➜
+
+                </button>
+
+            </nav>
+
+            <!-- =====================
+                 PAINEL DE EXPLICACAO
+            ====================== -->
+
+            <div class="t3-modal-fundo" id="t3-modal" hidden>
+
+                <section class="t3-modal" role="dialog" aria-modal="true" aria-labelledby="t3-modal-titulo">
+
+                    <button class="t3-fechar" id="t3-fechar" type="button" aria-label="Fechar explicação">
+                        ×
+                    </button>
+
+                    <span class="t3-modal-etiqueta">
+                        CONHEÇA O ECOENERGIA
+                    </span>
+
+                    <div class="t3-modal-icone" id="t3-modal-icone" aria-hidden="true">
+                    </div>
+
+                    <h2 id="t3-modal-titulo"></h2>
+
+                    <p id="t3-modal-texto"></p>
+
+                    <div class="t3-modal-destaque" id="t3-modal-destaque">
+                    </div>
+
+                    <button class="t3-botao t3-entendi" id="t3-entendi" type="button">
+
+                        Entendi! ✓
+
+                    </button>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="navegacao.js"></script>
+
+
+</body>
+
+</html>

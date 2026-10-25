@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoEnergia | Aprender Brincando</title>
+
+    <link rel="stylesheet" href="tela5.css">
+
+    <script src="tela5.js" defer></script>
+</head>
+
+<body>
+
+    <main class="t5-apresentacao">
+
+        <section class="t5-cena" id="tela-5">
+
+            <!-- =========================
+                 CENARIO
+            ========================== -->
+
+            <div class="t5-fundo" aria-hidden="true">
+            </div>
+
+            <div class="t5-iluminacao" aria-hidden="true">
+            </div>
+
+
+            <!-- =========================
+                 TITULO
+            ========================== -->
+
+            <header class="t5-cabecalho">
+
+                <div class="t5-placa-titulo">
+
+                    <h1>
+                        Aprender
+                        <span>Brincando</span>
+                    </h1>
+
+                    <p>
+                        Veja como a criança aprende
+                        com quizzes e recompensas!
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 LUMI - ESQUERDA
+            ========================== -->
+
+            <img src="assets/personagens/lumi-tela-4.png" alt="Lumi apresentando o quiz" class="t5-personagem t5-lumi"
+                draggable="false">
+
+
+            <!-- =========================
+                 PAINEL CENTRAL DO QUIZ
+            ========================== -->
+
+            <div class="t5-area-quiz">
+
+                <img src="assets/tela5/painel-quiz.png"
+                    alt="Quiz: Qual atitude ajuda a economizar água? A resposta correta é fechar a torneira ao escovar os dentes."
+                    class="t5-painel-quiz" draggable="false">
+
+            </div>
+
+
+            <!-- =========================
+                 RECOMPENSAS - DIREITA
+            ========================== -->
+
+            <aside class="t5-area-recompensas">
+
+                <img src="assets/tela5/painel-recompensas.png"
+                    alt="Missão concluída! 50 XP, 20 EcoMoedas e progresso de 3 de 5 desafios."
+                    class="t5-painel-recompensas" draggable="false">
+
+            </aside>
+
+
+            <!-- =========================
+                 CAPI - DIREITA
+            ========================== -->
+
+            <img src="assets/personagens/capi-tela-5.png" alt="Capi comemorando a missão concluída"
+                class="t5-personagem t5-capi" draggable="false">
+
+
+            <!-- =========================
+                 NAVEGACAO
+            ========================== -->
+
+            <nav class="t5-navegacao" aria-label="Navegação da apresentação">
+
+                <a href="tela4.html" class="t5-botao t5-voltar">
+
+                    <span aria-hidden="true">←</span>
+                    Voltar
+
+                </a>
+
+
+                <span class="t5-indicador">
+                    05 / 10
+                </span>
+
+
+                <button type="button" class="t5-botao t5-continuar" id="t5-continuar">
+
+                    Continuar
+                    <span aria-hidden="true">➜</span>
+
+                </button>
+
+            </nav>
+
+        </section>
+
+    </main>
+
+
+    <script src="navegacao.js"></script>
+
+
+</body>
+
+</html>

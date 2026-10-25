@@ -1,0 +1,803 @@
+/* ==========================================
+   ECOENERGIA - TELA 4
+   A JORNADA DA CRIANCA
+
+   CARDS GRANDES
+   SEM SOBREPOSICAO
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap');
+
+/* CONFIGURACOES GERAIS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #12392d;
+    font-family: 'Nunito', sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 4px solid #fff28a;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   APRESENTACAO
+========================================== */
+
+.t4-apresentacao {
+    width: 100%;
+    height: 100dvh;
+}
+
+.t4-cena {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* ==========================================
+   CENARIO ORIGINAL
+========================================== */
+
+.t4-fundo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    background-image:
+        url("assets/telas/fundo-tela-4.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    animation: t4-entrada-cenario 1.3s ease-out both;
+}
+
+.t4-iluminacao {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 80% 12%,
+            rgba(255, 242, 150, 0.14),
+            transparent 30%),
+        linear-gradient(180deg,
+            rgba(12, 54, 41, 0.04),
+            transparent 42%,
+            rgba(8, 39, 26, 0.14));
+}
+
+/* ==========================================
+   TITULO
+========================================== */
+
+.t4-cabecalho {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 8;
+
+    width: min(45%, 620px);
+}
+
+.t4-placa-titulo {
+    position: relative;
+
+    padding: 12px 22px 15px;
+    text-align: center;
+
+    border: 5px solid #8b4d1d;
+    border-radius: 27px;
+
+    background:
+        repeating-linear-gradient(0deg,
+            transparent 0px,
+            transparent 18px,
+            rgba(89, 49, 20, 0.10) 20px,
+            transparent 23px),
+        linear-gradient(180deg,
+            #b8783f,
+            #985720 60%,
+            #7b4318);
+
+    box-shadow:
+        inset 0 3px 0 #ebb679,
+        inset 0 -4px 0 #683715,
+        0 8px 0 #6a3a18,
+        0 20px 34px rgba(23, 11, 3, 0.35);
+
+    animation: t4-descer 0.9s ease-out both;
+}
+
+/* FOLHAS */
+
+.t4-placa-titulo::before,
+.t4-placa-titulo::after {
+    content: "";
+    position: absolute;
+
+    width: 42px;
+    height: 27px;
+
+    border-radius: 0 100% 0 100%;
+
+    background: linear-gradient(135deg,
+            #c4f56c,
+            #42a338);
+
+    box-shadow: 8px 5px 0 #2f7d2d;
+}
+
+.t4-placa-titulo::before {
+    top: -10px;
+    left: 12px;
+    transform: rotate(-28deg);
+}
+
+.t4-placa-titulo::after {
+    top: -10px;
+    right: 12px;
+    transform: rotate(62deg);
+}
+
+.t4-placa-titulo h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(34px, 3.6vw, 58px);
+    font-weight: 700;
+    line-height: 1.03;
+
+    color: #ffcb44;
+    -webkit-text-stroke: 1px #8f5312;
+
+    text-shadow:
+        0 4px 0 #ab6410,
+        0 7px 0 #864407,
+        0 13px 18px rgba(32, 14, 4, 0.5);
+}
+
+.t4-placa-titulo h1 span {
+    color: #6ee24e;
+    -webkit-text-stroke: 1px #1b6f33;
+
+    text-shadow:
+        0 4px 0 #2f943f,
+        0 7px 0 #155e29,
+        0 13px 18px rgba(32, 14, 4, 0.5);
+}
+
+.t4-placa-titulo p {
+    margin-top: 6px;
+    color: #fff6e0;
+
+    font-size: clamp(11px, 1vw, 16px);
+    font-weight: 900;
+    line-height: 1.25;
+
+    text-shadow: 0 2px 3px #5a2b0e;
+}
+
+/* ==========================================
+   AREA EXCLUSIVA DOS CARDS
+
+   OCUPA DE 21% A 65% DA TELA.
+   OS PERSONAGENS FICAM ABAIXO.
+========================================== */
+
+.t4-jornada {
+    position: absolute;
+
+    top: 21%;
+    left: 1%;
+    right: 1%;
+    height: 44%;
+
+    z-index: 5;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    column-gap: 1%;
+
+    pointer-events: none;
+}
+
+/* ==========================================
+   CARDS
+
+   CADA CARD OCUPA SUA COLUNA.
+   NENHUM ENTRA NO ESPACO DO OUTRO.
+========================================== */
+
+.t4-passo {
+    position: relative;
+
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: none;
+    user-select: none;
+
+    filter: drop-shadow(0 13px 15px rgba(25, 36, 16, 0.28));
+
+    animation: t4-subir 0.8s ease-out both;
+}
+
+.t4-passo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+/* ETAPAS */
+
+.t4-passo-1 {
+    animation-delay: 0.15s;
+}
+
+.t4-passo-2 {
+    animation-delay: 0.30s;
+}
+
+.t4-passo-3 {
+    animation-delay: 0.45s;
+}
+
+.t4-passo-4 {
+    animation-delay: 0.60s;
+}
+
+/* ==========================================
+   PERSONAGENS
+
+   AREA EXCLUSIVA INFERIOR.
+   NAO INVadem A AREA DOS CARDS.
+========================================== */
+
+.t4-personagem {
+    position: absolute;
+
+    z-index: 4;
+
+    object-fit: contain;
+
+    pointer-events: none;
+    user-select: none;
+
+    filter: drop-shadow(0 12px 16px rgba(10, 48, 30, 0.32));
+}
+
+/* LUMI - ABAIXO DO CARD 1 */
+
+.t4-lumi {
+    left: 0%;
+    bottom: 7%;
+
+    width: 12vw;
+    height: auto;
+    max-height: 27%;
+
+    animation:
+        t4-entrada-lumi 1s ease-out both,
+        t4-flutuar 3.4s 1s ease-in-out infinite;
+}
+
+/* CAPI - ABAIXO DO CARD 4 */
+
+.t4-capi {
+    right: 0%;
+    bottom: 7%;
+
+    width: 14vw;
+    height: auto;
+    max-height: 27%;
+
+    animation:
+        t4-entrada-capi 1s ease-out both,
+        t4-flutuar 3.8s 1s ease-in-out infinite;
+}
+
+/* ==========================================
+   NAVEGACAO
+========================================== */
+
+.t4-navegacao {
+    position: absolute;
+
+    left: 2.5%;
+    right: 2.5%;
+    bottom: 2.5%;
+
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.t4-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+    padding: 13px 25px;
+
+    border: 3px solid #eaf7be;
+    border-radius: 100px;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(14px, 1.2vw, 19px);
+    font-weight: 600;
+
+    transition:
+        transform 0.22s ease,
+        filter 0.22s ease;
+}
+
+.t4-botao:hover {
+    transform: translateY(-4px) scale(1.04);
+    filter: brightness(1.08);
+}
+
+.t4-botao:active {
+    transform: translateY(2px);
+}
+
+/* VOLTAR */
+
+.t4-voltar {
+    background: linear-gradient(#ffffff,
+            #ebf6e8);
+
+    color: #236742;
+
+    box-shadow:
+        0 7px 0 #49915e,
+        0 13px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* CONTINUAR */
+
+.t4-continuar {
+    background: linear-gradient(#b5f665,
+            #54c345);
+
+    color: #1b6334;
+
+    box-shadow:
+        0 7px 0 #2e8c3a,
+        0 13px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* INDICADOR */
+
+.t4-indicador {
+    padding: 8px 18px;
+
+    border: 2px solid #ffffff;
+    border-radius: 100px;
+
+    background: rgba(255, 249, 223, 0.93);
+    color: #266d44;
+
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   ANIMACOES
+========================================== */
+
+@keyframes t4-entrada-cenario {
+    from {
+        opacity: 0;
+        transform: scale(1.06);
+        filter: blur(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes t4-descer {
+    from {
+        opacity: 0;
+        translate: 0 -60px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t4-subir {
+    from {
+        opacity: 0;
+        translate: 0 35px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t4-entrada-lumi {
+    from {
+        opacity: 0;
+        translate: -100px 0;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t4-entrada-capi {
+    from {
+        opacity: 0;
+        translate: 100px 0;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t4-flutuar {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -9px;
+    }
+}
+
+/* ==========================================
+   NOTEBOOKS COM ALTURA MENOR
+========================================== */
+
+@media (max-height: 680px) and (min-width: 781px) {
+
+    .t4-cabecalho {
+        top: 1%;
+    }
+
+    .t4-placa-titulo {
+        padding: 7px 13px 9px;
+    }
+
+    .t4-placa-titulo h1 {
+        font-size: clamp(28px, 3vw, 45px);
+    }
+
+    .t4-placa-titulo p {
+        font-size: 11px;
+    }
+
+    .t4-jornada {
+        top: 21%;
+        height: 43%;
+    }
+
+    .t4-lumi,
+    .t4-capi {
+        max-height: 26%;
+    }
+
+    .t4-botao {
+        padding: 9px 17px;
+        font-size: 14px;
+    }
+}
+
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media (min-width: 561px) and (max-width: 780px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .t4-apresentacao,
+    .t4-cena {
+        height: auto;
+        min-height: 100dvh;
+    }
+
+    .t4-cena {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 20px 18px 30px;
+        gap: 22px;
+    }
+
+    .t4-fundo,
+    .t4-iluminacao {
+        position: absolute;
+    }
+
+    .t4-cabecalho {
+        position: relative;
+
+        top: auto;
+        left: auto;
+        transform: none;
+
+        width: 90%;
+    }
+
+    .t4-jornada {
+        position: relative;
+
+        top: auto;
+        left: auto;
+        right: auto;
+
+        width: 100%;
+        height: auto;
+
+        display: grid;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+    .t4-passo {
+        height: auto;
+        width: 100%;
+    }
+
+    .t4-passo img {
+        height: auto;
+        width: 100%;
+    }
+
+    .t4-personagem {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 25%;
+        max-height: none;
+    }
+
+    .t4-lumi {
+        align-self: flex-start;
+    }
+
+    .t4-capi {
+        align-self: flex-end;
+    }
+
+    .t4-navegacao {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 100%;
+    }
+}
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 560px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .t4-apresentacao {
+        height: auto;
+        min-height: 100dvh;
+    }
+
+    .t4-cena {
+        height: auto;
+        min-height: 100dvh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 18px 12px 28px;
+        gap: 20px;
+    }
+
+    .t4-fundo,
+    .t4-iluminacao {
+        position: absolute;
+    }
+
+    .t4-cabecalho {
+        position: relative;
+
+        top: auto;
+        left: auto;
+        transform: none;
+
+        width: 100%;
+    }
+
+    .t4-placa-titulo {
+        padding: 12px 16px;
+    }
+
+    .t4-placa-titulo h1 {
+        font-size: clamp(32px, 8vw, 46px);
+    }
+
+    .t4-placa-titulo p {
+        font-size: 12px;
+    }
+
+    .t4-jornada {
+        position: relative;
+
+        top: auto;
+        left: auto;
+        right: auto;
+
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 12px;
+    }
+
+    .t4-passo {
+        width: min(100%, 360px);
+        height: auto;
+    }
+
+    .t4-passo img {
+        width: 100%;
+        height: auto;
+    }
+
+    .t4-personagem {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 40%;
+        max-width: 200px;
+        max-height: none;
+    }
+
+    .t4-lumi {
+        align-self: flex-start;
+    }
+
+    .t4-capi {
+        align-self: flex-end;
+    }
+
+    .t4-navegacao {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 100%;
+        gap: 6px;
+    }
+
+    .t4-botao {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .t4-indicador {
+        padding: 5px 8px;
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+}
+
+/* ==========================================
+   ACESSIBILIDADE
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

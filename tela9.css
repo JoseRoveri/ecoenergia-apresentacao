@@ -1,0 +1,1475 @@
+/* ==========================================
+   ECOENERGIA - TELA 9
+   MUITO ALEM DE UM JOGO
+
+   VERSAO ATUALIZADA PARA PROJETOR
+   TEXTOS MAIORES E MAIS LEGIVEIS
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ==========================================
+   VARIAVEIS
+========================================== */
+
+:root {
+    --t9-fundo: #031523;
+    --t9-card: rgba(5, 35, 52, 0.94);
+
+    --t9-ciano: #00d9f5;
+    --t9-verde: #48f0ab;
+    --t9-amarelo: #e8da74;
+
+    --t9-texto: #f4fbff;
+    --t9-texto-secundario: #e0f0f7;
+
+    --t9-borda: rgba(0, 217, 245, 0.65);
+}
+
+/* ==========================================
+   CONFIGURACOES GERAIS
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+
+    color: var(--t9-texto);
+    background: var(--t9-fundo);
+
+    overflow: hidden;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #c8ffd6;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   ESTRUTURA PRINCIPAL
+========================================== */
+
+.t9-apresentacao {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.t9-cena {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    background: #031523;
+}
+
+/* ==========================================
+   FUNDO TECNOLOGICO
+========================================== */
+
+.t9-fundo {
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(ellipse at 85% 3%,
+            rgba(0, 226, 208, 0.19),
+            transparent 35%),
+        radial-gradient(ellipse at 6% 80%,
+            rgba(0, 143, 182, 0.22),
+            transparent 34%),
+        radial-gradient(ellipse at 48% 48%,
+            rgba(0, 85, 100, 0.12),
+            transparent 48%),
+        linear-gradient(135deg,
+            #020e1b 0%,
+            #042337 50%,
+            #031522 100%);
+
+    animation: t9-fundo-entrada 1.4s ease-out both;
+}
+
+/* MALHA TECNOLOGICA */
+
+.t9-fundo::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(47, 187, 202, 0.055) 1px,
+            transparent 1px),
+        linear-gradient(90deg,
+            rgba(47, 187, 202, 0.055) 1px,
+            transparent 1px);
+
+    background-size: 54px 54px;
+
+    mask-image:
+        linear-gradient(180deg,
+            transparent 2%,
+            black 40%,
+            black 83%,
+            transparent);
+}
+
+/* CIRCULO DECORATIVO */
+
+.t9-fundo::after {
+    content: "";
+
+    position: absolute;
+
+    width: 38vw;
+    height: 38vw;
+
+    max-width: 680px;
+    max-height: 680px;
+
+    right: -14%;
+    top: -37%;
+
+    border: 1px solid rgba(61, 231, 205, 0.22);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 55px rgba(0, 220, 201, 0.025),
+        0 0 0 115px rgba(0, 220, 201, 0.015);
+}
+
+/* PROFUNDIDADE */
+
+.t9-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+    pointer-events: none;
+
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.04),
+            transparent 36%,
+            rgba(0, 0, 0, 0.16));
+}
+
+/* ==========================================
+   CABECALHO
+========================================== */
+
+.t9-cabecalho {
+    position: absolute;
+
+    top: 2.1%;
+    left: 50%;
+
+    width: 96%;
+
+    transform: translateX(-50%);
+
+    z-index: 5;
+    text-align: center;
+
+    animation: t9-descer 0.9s ease-out both;
+}
+
+/* IDENTIFICACAO SUPERIOR */
+
+.t9-badge-topo {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 8px;
+
+    font-size: clamp(12px, 0.85vw, 16px);
+    font-weight: 800;
+    letter-spacing: 3px;
+
+    color: var(--t9-verde);
+}
+
+.t9-badge-topo::before,
+.t9-badge-topo::after {
+    content: "";
+
+    width: 38px;
+    height: 2px;
+
+    background: linear-gradient(90deg,
+            transparent,
+            var(--t9-verde));
+}
+
+.t9-badge-topo::after {
+    transform: rotate(180deg);
+}
+
+/* TITULO PRINCIPAL */
+
+.t9-titulo {
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: clamp(37px, 3.3vw, 68px);
+    font-weight: 700;
+
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+
+    color: #f3fdff;
+
+    text-shadow:
+        0 0 25px rgba(90, 212, 222, 0.18);
+}
+
+.t9-titulo span {
+    background:
+        linear-gradient(90deg,
+            #48e4ca 0%,
+            #18d9d5 45%,
+            #8ef08c 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+/* SUBTITULO */
+
+.t9-subtitulo {
+    margin-top: 10px;
+
+    font-size: clamp(16px, 1.17vw, 22px);
+    font-weight: 500;
+
+    color: #d1eaf5;
+
+    letter-spacing: 0.1px;
+    line-height: 1.35;
+}
+
+/* ==========================================
+   CONTEUDO PRINCIPAL
+
+   MAIS ESPACO PARA TEXTOS
+========================================== */
+
+.t9-conteudo {
+    position: absolute;
+
+    top: 19%;
+    left: 2%;
+
+    width: 96%;
+    height: 63%;
+
+    z-index: 4;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) minmax(0, 1.28fr) minmax(0, 1fr);
+
+    gap: 1%;
+
+    align-items: stretch;
+}
+
+/* ==========================================
+   COLUNAS LATERAIS
+========================================== */
+
+.t9-coluna {
+    display: grid;
+
+    grid-template-rows:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 10px;
+
+    min-height: 0;
+    min-width: 0;
+}
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.t9-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: clamp(10px, 0.9vw, 17px);
+
+    min-width: 0;
+    min-height: 0;
+
+    padding: clamp(12px, 1vw, 20px);
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(135deg,
+            rgba(7, 48, 65, 0.96),
+            rgba(3, 25, 39, 0.96));
+
+    border: 1.5px solid var(--t9-borda);
+    border-radius: 16px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(120, 246, 244, 0.1),
+        0 9px 24px rgba(0, 0, 0, 0.2);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* LINHA INFERIOR */
+
+.t9-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    height: 3px;
+    width: 55%;
+
+    background:
+        linear-gradient(90deg,
+            var(--t9-ciano),
+            var(--t9-verde),
+            transparent);
+}
+
+/* PONTOS DECORATIVOS */
+
+.t9-card::after {
+    content: "";
+
+    position: absolute;
+
+    right: 12px;
+    top: 12px;
+
+    width: 23px;
+    height: 23px;
+
+    opacity: 0.25;
+
+    background-image:
+        radial-gradient(var(--t9-ciano) 1.5px,
+            transparent 2px);
+
+    background-size: 8px 8px;
+}
+
+/* HOVER */
+
+.t9-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(68, 241, 185, 0.9);
+
+    box-shadow:
+        0 0 22px rgba(0, 208, 201, 0.13),
+        0 14px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================
+   ICONES DOS CARDS
+========================================== */
+
+.t9-card-icone {
+    flex-shrink: 0;
+
+    width: clamp(46px, 3.5vw, 68px);
+    height: clamp(46px, 3.5vw, 68px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: clamp(24px, 2vw, 35px);
+
+    border: 1px solid rgba(23, 213, 217, 0.55);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle at 30% 25%,
+            rgba(37, 238, 213, 0.22),
+            rgba(0, 107, 122, 0.1));
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 255, 208, 0.08);
+}
+
+/* ==========================================
+   TEXTOS DOS CARDS
+
+   PRINCIPAL CORRECAO
+========================================== */
+
+.t9-card-texto {
+    flex: 1;
+    min-width: 0;
+}
+
+/* TITULOS MAIORES */
+
+.t9-card-texto h2 {
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: clamp(18px, 1.4vw, 25px);
+    font-weight: 700;
+
+    line-height: 1.16;
+    letter-spacing: -0.35px;
+
+    color: #ffffff;
+}
+
+/* LINHA ABAIXO DO TITULO */
+
+.t9-card-texto h2::after {
+    content: "";
+
+    display: block;
+
+    width: 38px;
+    height: 3px;
+
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    border-radius: 6px;
+
+    background: var(--t9-verde);
+}
+
+.t9-card:nth-child(2) .t9-card-texto h2::after {
+    background: var(--t9-ciano);
+}
+
+.t9-card:nth-child(3) .t9-card-texto h2::after {
+    background: var(--t9-amarelo);
+}
+
+/* DESCRICOES MAIORES */
+
+.t9-card-texto p {
+    font-size: clamp(14px, 1.06vw, 19px);
+    font-weight: 500;
+
+    line-height: 1.38;
+
+    color: var(--t9-texto-secundario);
+
+    overflow-wrap: break-word;
+}
+
+/* ==========================================
+   ENTRADA DOS CARDS
+========================================== */
+
+.t9-coluna-esquerda .t9-card:nth-child(1) {
+    animation: t9-entrar-esquerda 0.8s 0.2s both;
+}
+
+.t9-coluna-esquerda .t9-card:nth-child(2) {
+    animation: t9-entrar-esquerda 0.8s 0.35s both;
+}
+
+.t9-coluna-esquerda .t9-card:nth-child(3) {
+    animation: t9-entrar-esquerda 0.8s 0.5s both;
+}
+
+.t9-coluna-direita .t9-card:nth-child(1) {
+    animation: t9-entrar-direita 0.8s 0.3s both;
+}
+
+.t9-coluna-direita .t9-card:nth-child(2) {
+    animation: t9-entrar-direita 0.8s 0.45s both;
+}
+
+.t9-coluna-direita .t9-card:nth-child(3) {
+    animation: t9-entrar-direita 0.8s 0.6s both;
+}
+
+/* ==========================================
+   CENTRO - ARQUITETURA
+========================================== */
+
+.t9-centro {
+    min-width: 0;
+    min-height: 0;
+
+    animation: t9-entrar-centro 1s 0.45s both;
+}
+
+.t9-diagrama {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(160deg,
+            rgba(4, 36, 57, 0.96),
+            rgba(2, 20, 35, 0.98));
+
+    border: 1.5px solid rgba(0, 198, 248, 0.7);
+    border-radius: 20px;
+
+    box-shadow:
+        inset 0 0 30px rgba(0, 152, 179, 0.07),
+        0 16px 32px rgba(0, 0, 0, 0.22);
+}
+
+/* LINHA SUPERIOR */
+
+.t9-diagrama::before {
+    content: "";
+
+    position: absolute;
+
+    top: 58px;
+    left: 4%;
+    right: 4%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(0, 232, 240, 0.6),
+            transparent);
+}
+
+/* DETALHE CIRCULAR */
+
+.t9-diagrama::after {
+    content: "";
+
+    position: absolute;
+
+    width: 210px;
+    height: 210px;
+
+    left: 50%;
+    top: 48%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(0, 213, 218, 0.08);
+
+    box-shadow:
+        0 0 0 28px rgba(0, 213, 218, 0.025),
+        0 0 0 56px rgba(0, 213, 218, 0.015);
+
+    pointer-events: none;
+}
+
+/* ==========================================
+   TITULO DO DIAGRAMA
+========================================== */
+
+.t9-diagrama-titulo {
+    position: relative;
+    z-index: 2;
+
+    height: 59px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: clamp(15px, 1.13vw, 21px);
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: #65edfa;
+}
+
+/* ==========================================
+   BLOCOS DO SISTEMA
+========================================== */
+
+.t9-diagrama-blocos {
+    position: relative;
+    z-index: 2;
+
+    width: 96%;
+    height: calc(100% - 70px);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) 20px minmax(0, 1fr) 20px minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 3px;
+}
+
+.t9-bloco {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+    height: min(67%, 270px);
+    min-width: 0;
+
+    padding: 12px 5px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(160deg,
+            rgba(0, 76, 103, 0.35),
+            rgba(3, 30, 47, 0.9));
+
+    border: 2px solid #05cafa;
+    border-radius: 13px;
+
+    box-shadow:
+        inset 0 0 20px rgba(0, 214, 250, 0.06),
+        0 0 18px rgba(0, 214, 250, 0.08);
+}
+
+/* ICONES DOS BLOCOS */
+
+.t9-bloco::before {
+    content: "";
+
+    display: block;
+
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 8px;
+
+    border: 2px solid currentColor;
+    border-radius: 9px;
+
+    opacity: 0.9;
+
+    box-shadow:
+        inset 0 0 12px rgba(255, 255, 255, 0.07),
+        0 0 12px currentColor;
+}
+
+/* FRONTEND */
+
+.t9-bloco-frontend {
+    color: #1fd5f4;
+    border-color: #06cfff;
+}
+
+/* BACKEND */
+
+.t9-bloco-backend {
+    color: #3bf0a1;
+    border-color: #3bf0a1;
+
+    background:
+        linear-gradient(160deg,
+            rgba(0, 91, 67, 0.3),
+            rgba(3, 30, 47, 0.9));
+}
+
+/* BANCO */
+
+.t9-bloco-banco {
+    color: #9b8bff;
+    border-color: #9385ff;
+
+    background:
+        linear-gradient(160deg,
+            rgba(63, 41, 126, 0.35),
+            rgba(3, 30, 47, 0.9));
+}
+
+/* ==========================================
+   TEXTOS DA ARQUITETURA
+========================================== */
+
+.t9-bloco h3 {
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: clamp(14px, 1.13vw, 21px);
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    color: #ffffff;
+
+    overflow-wrap: anywhere;
+}
+
+.t9-bloco p {
+    font-size: clamp(13px, 0.98vw, 18px);
+    font-weight: 500;
+
+    line-height: 1.25;
+
+    color: #e0f2fa;
+
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   CONEXOES
+========================================== */
+
+.t9-linha {
+    position: relative;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(90deg,
+            #13bde9,
+            #5df0a4);
+
+    box-shadow:
+        0 0 10px rgba(29, 220, 229, 0.5);
+}
+
+.t9-linha::after {
+    content: "";
+
+    position: absolute;
+
+    right: -2px;
+    top: 50%;
+
+    width: 8px;
+    height: 8px;
+
+    transform:
+        translateY(-50%) rotate(45deg);
+
+    border-top: 2px solid #66f7d5;
+    border-right: 2px solid #66f7d5;
+}
+
+/* ==========================================
+   FRASE FINAL
+========================================== */
+
+.t9-frase-final {
+    position: absolute;
+
+    left: 50%;
+    bottom: 9%;
+
+    transform: translateX(-50%);
+
+    width: 91%;
+    min-height: 54px;
+
+    z-index: 7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 25px;
+
+    border: 1px solid rgba(61, 237, 190, 0.5);
+    border-radius: 14px;
+
+    background:
+        linear-gradient(90deg,
+            rgba(5, 37, 51, 0.94),
+            rgba(4, 53, 62, 0.96),
+            rgba(5, 37, 51, 0.94));
+
+    box-shadow:
+        0 0 20px rgba(0, 224, 197, 0.08),
+        inset 0 1px 0 rgba(162, 255, 229, 0.08);
+
+    animation: t9-subir 0.85s 0.9s both;
+}
+
+.t9-frase-final::before {
+    content: "◈";
+
+    margin-right: 15px;
+
+    font-size: 28px;
+    color: #73f0ae;
+}
+
+.t9-frase-final p {
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: clamp(16px, 1.35vw, 24px);
+    font-weight: 600;
+
+    line-height: 1.3;
+    text-align: center;
+
+    color: #e5f5f5;
+}
+
+/* ==========================================
+   NAVEGACAO INFERIOR
+========================================== */
+
+.t9-navegacao {
+    position: absolute;
+
+    left: 2.5%;
+    right: 2.5%;
+    bottom: 1.5%;
+
+    z-index: 12;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    animation: t9-subir 0.85s 1.05s both;
+}
+
+/* BOTOES */
+
+.t9-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 11px 24px;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: clamp(14px, 1.05vw, 19px);
+    font-weight: 700;
+
+    border: 1px solid rgba(51, 235, 194, 0.7);
+    border-radius: 9px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.t9-botao:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 20px rgba(39, 226, 191, 0.2);
+}
+
+.t9-voltar {
+    background: rgba(3, 37, 52, 0.96);
+    color: #8fead6;
+}
+
+.t9-continuar {
+    background:
+        linear-gradient(135deg,
+            #19c998,
+            #069fbd);
+
+    color: #001b25;
+    border-color: #4df1cb;
+}
+
+.t9-indicador {
+    font-family: 'Space Grotesk', sans-serif;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #c0edf0;
+}
+
+/* ==========================================
+   ANIMACOES
+========================================== */
+
+@keyframes t9-fundo-entrada {
+    from {
+        opacity: 0;
+        transform: scale(1.04);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes t9-descer {
+    from {
+        opacity: 0;
+        translate: 0 -35px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t9-subir {
+    from {
+        opacity: 0;
+        translate: 0 25px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t9-entrar-esquerda {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes t9-entrar-direita {
+    from {
+        opacity: 0;
+        transform: translateX(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes t9-entrar-centro {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+/* ==========================================
+   NOTEBOOKS - 901px A 1250px
+========================================== */
+
+@media (min-width: 901px) and (max-width: 1250px) {
+
+    .t9-cabecalho {
+        top: 1.5%;
+    }
+
+    .t9-titulo {
+        font-size: clamp(34px, 3.2vw, 46px);
+    }
+
+    .t9-subtitulo {
+        font-size: 15px;
+    }
+
+    .t9-conteudo {
+        left: 1.5%;
+        width: 97%;
+
+        top: 18%;
+        height: 65%;
+
+        grid-template-columns:
+            minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
+
+        gap: 8px;
+    }
+
+    .t9-coluna {
+        gap: 7px;
+    }
+
+    .t9-card {
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .t9-card-icone {
+        width: 42px;
+        height: 42px;
+
+        font-size: 22px;
+    }
+
+    .t9-card-texto h2 {
+        font-size: clamp(15px, 1.5vw, 18px);
+    }
+
+    .t9-card-texto h2::after {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .t9-card-texto p {
+        font-size: clamp(12px, 1.05vw, 14px);
+        line-height: 1.3;
+    }
+
+    .t9-diagrama-blocos {
+        grid-template-columns:
+            minmax(0, 1fr) 13px minmax(0, 1fr) 13px minmax(0, 1fr);
+
+        gap: 2px;
+    }
+
+    .t9-bloco {
+        padding: 8px 3px;
+        gap: 6px;
+    }
+
+    .t9-bloco h3 {
+        font-size: clamp(12px, 1.15vw, 15px);
+    }
+
+    .t9-bloco p {
+        font-size: clamp(11px, 1vw, 13px);
+    }
+
+    .t9-frase-final {
+        bottom: 8%;
+        padding: 8px 14px;
+        min-height: 44px;
+    }
+
+    .t9-frase-final p {
+        font-size: 15px;
+    }
+}
+
+/* ==========================================
+   TELAS COM POUCA ALTURA
+========================================== */
+
+@media (max-height: 720px) and (min-width: 901px) {
+
+    .t9-cabecalho {
+        top: 1%;
+    }
+
+    .t9-badge-topo {
+        margin-bottom: 4px;
+        font-size: 11px;
+    }
+
+    .t9-titulo {
+        font-size: clamp(30px, 2.9vw, 44px);
+    }
+
+    .t9-subtitulo {
+        margin-top: 5px;
+        font-size: 13px;
+    }
+
+    .t9-conteudo {
+        top: 18%;
+        height: 64%;
+    }
+
+    .t9-coluna {
+        gap: 7px;
+    }
+
+    .t9-card {
+        padding: 8px 10px;
+    }
+
+    .t9-card-texto h2 {
+        font-size: clamp(15px, 1.3vw, 20px);
+    }
+
+    .t9-card-texto p {
+        font-size: clamp(12px, 1vw, 15px);
+        line-height: 1.28;
+    }
+
+    .t9-card-texto h2::after {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .t9-card-icone {
+        width: 42px;
+        height: 42px;
+        font-size: 22px;
+    }
+
+    .t9-diagrama-titulo {
+        height: 42px;
+        font-size: 13px;
+    }
+
+    .t9-diagrama::before {
+        top: 41px;
+    }
+
+    .t9-diagrama-blocos {
+        height: calc(100% - 50px);
+    }
+
+    .t9-bloco {
+        gap: 6px;
+        height: min(68%, 205px);
+    }
+
+    .t9-bloco::before {
+        width: 32px;
+        height: 32px;
+
+        margin-bottom: 2px;
+    }
+
+    .t9-frase-final {
+        bottom: 8.5%;
+
+        min-height: 42px;
+        padding: 8px 15px;
+    }
+
+    .t9-frase-final p {
+        font-size: clamp(14px, 1.13vw, 18px);
+    }
+
+    .t9-botao {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+}
+
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media (max-width: 900px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .t9-apresentacao,
+    .t9-cena {
+        height: auto;
+        min-height: 100dvh;
+    }
+
+    .t9-cena {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 22px 15px 26px;
+        gap: 20px;
+
+        overflow: visible;
+    }
+
+    .t9-fundo,
+    .t9-overlay {
+        position: fixed;
+    }
+
+    .t9-cabecalho {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        transform: none;
+
+        width: 100%;
+    }
+
+    .t9-titulo {
+        font-size: clamp(34px, 5vw, 50px);
+        letter-spacing: -1px;
+    }
+
+    .t9-subtitulo {
+        font-size: 17px;
+    }
+
+    .t9-conteudo {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        width: 100%;
+        height: auto;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .t9-coluna {
+        display: grid;
+        grid-template-rows: auto;
+
+        gap: 13px;
+    }
+
+    .t9-card {
+        min-height: 135px;
+        padding: 19px;
+    }
+
+    .t9-card-texto h2 {
+        font-size: 22px;
+    }
+
+    .t9-card-texto p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .t9-centro {
+        min-height: 360px;
+    }
+
+    .t9-diagrama {
+        min-height: 360px;
+    }
+
+    .t9-diagrama-blocos {
+        min-height: 280px;
+    }
+
+    .t9-bloco {
+        min-height: 180px;
+    }
+
+    .t9-bloco h3 {
+        font-size: 18px;
+    }
+
+    .t9-bloco p {
+        font-size: 15px;
+    }
+
+    .t9-frase-final {
+        position: relative;
+
+        left: auto;
+        bottom: auto;
+
+        transform: none;
+
+        width: 100%;
+    }
+
+    .t9-frase-final p {
+        font-size: 19px;
+    }
+
+    .t9-navegacao {
+        position: relative;
+
+        left: auto;
+        right: auto;
+        bottom: auto;
+
+        width: 100%;
+    }
+}
+
+/* ==========================================
+   CELULARES
+========================================== */
+
+@media (max-width: 560px) {
+
+    .t9-cena {
+        gap: 17px;
+        padding: 18px 12px 25px;
+    }
+
+    .t9-badge-topo {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .t9-titulo {
+        font-size: 32px;
+    }
+
+    .t9-subtitulo {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .t9-card {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .t9-card-icone {
+        width: 45px;
+        height: 45px;
+    }
+
+    .t9-card-texto h2 {
+        font-size: 18px;
+    }
+
+    .t9-card-texto p {
+        font-size: 14px;
+    }
+
+    .t9-diagrama-titulo {
+        font-size: 13px;
+        letter-spacing: 1px;
+    }
+
+    .t9-diagrama-blocos {
+        grid-template-columns:
+            minmax(0, 1fr) 10px minmax(0, 1fr) 10px minmax(0, 1fr);
+
+        gap: 2px;
+    }
+
+    .t9-bloco {
+        min-height: 140px;
+        gap: 6px;
+        padding: 8px 3px;
+    }
+
+    .t9-bloco::before {
+        width: 25px;
+        height: 25px;
+    }
+
+    .t9-bloco h3 {
+        font-size: 12px;
+    }
+
+    .t9-bloco p {
+        font-size: 11px;
+        overflow-wrap: anywhere;
+    }
+
+    .t9-frase-final {
+        padding: 13px;
+    }
+
+    .t9-frase-final::before {
+        display: none;
+    }
+
+    .t9-frase-final p {
+        font-size: 16px;
+    }
+
+    .t9-botao {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .t9-indicador {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+}
+
+/* ==========================================
+   ACESSIBILIDADE
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -1,0 +1,730 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap');
+
+/* =========================
+   CONFIGURACOES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #153a2a;
+    overflow: hidden;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 4px solid #ffe77a;
+    outline-offset: 4px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =========================
+   CENARIO PRINCIPAL
+========================= */
+
+.t2-cena {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.t2-fundo {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+
+    background-image:
+        url("assets/telas/fundo-tela-2.png");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    animation: t2-aproximar 1.3s ease-out both;
+}
+
+.t2-vinheta {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    pointer-events: none;
+
+    background: linear-gradient(180deg,
+            rgba(9, 24, 19, 0.26),
+            transparent 43%,
+            rgba(8, 31, 25, 0.50));
+}
+
+/* =========================
+   PLACA DO TITULO
+========================= */
+
+.t2-placa {
+    position: absolute;
+    z-index: 2;
+
+    top: 3.5%;
+    left: 2.8%;
+
+    width: min(32%, 450px);
+    padding: 18px 21px 19px;
+
+    text-align: center;
+
+    background: linear-gradient(130deg,
+            #fff8e8,
+            #f6ddae);
+
+    border: 5px solid #a66c2f;
+    outline: 2px solid #f5c26d;
+    border-radius: 21px;
+
+    box-shadow:
+        0 9px 0 #71411f,
+        0 18px 32px #2415077a;
+
+    animation: t2-entrar 0.6s ease-out both;
+}
+
+.t2-etapa {
+    font-size: clamp(9px, 0.85vw, 12px);
+    letter-spacing: 0.13em;
+    color: #2c8150;
+    font-weight: 900;
+}
+
+.t2-placa h1 {
+    margin: 7px 0;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(24px, 2.5vw, 40px);
+    font-weight: 700;
+    line-height: 1.07;
+
+    color: #266846;
+}
+
+.t2-placa h1 span {
+    display: block;
+    color: #a7672e;
+}
+
+.t2-placa p {
+    margin: 0;
+    color: #51442d;
+
+    font-size: clamp(11px, 1.06vw, 16px);
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+/* =========================
+   PROGRESSO DA MISSAO
+========================= */
+
+.t2-progresso {
+    position: absolute;
+    z-index: 3;
+
+    top: 3.5%;
+    right: 2.7%;
+
+    padding: 11px 15px;
+
+    color: white;
+    background: #153b35e6;
+
+    border: 2px solid #ffffff99;
+    border-radius: 999px;
+
+    font-size: clamp(12px, 1.1vw, 16px);
+    font-weight: 900;
+
+    box-shadow: 0 6px 13px #0006;
+}
+
+/* =========================
+   ALERTAS CLICAVEIS
+========================= */
+
+.t2-ponto {
+    position: absolute;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    min-height: 52px;
+    padding: 5px 10px 5px 6px;
+
+    border: 2px solid white;
+    border-radius: 100px;
+
+    background: #172827ed;
+    color: white;
+
+    font-size: clamp(11px, 1.1vw, 16px);
+    font-weight: 900;
+    white-space: nowrap;
+
+    box-shadow: 0 8px 23px #0008;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+
+    animation: t2-entrar 0.5s ease-out backwards;
+}
+
+.t2-ponto:hover,
+.t2-ponto:focus-visible {
+    transform: translateY(-5px) scale(1.045);
+
+    background: #1a5941;
+
+    box-shadow:
+        0 13px 29px #0009,
+        0 0 0 4px #bbf68988;
+}
+
+.t2-simbolo {
+    display: grid;
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+    background: #687979;
+
+    font-size: 20px;
+}
+
+.t2-alerta {
+    display: grid;
+    place-items: center;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+    border: 2px solid #ffc0a7;
+
+    background: #f15a46;
+    color: white;
+
+    font-weight: 900;
+}
+
+/* MARCACAO DOS ALERTAS CONCLUIDOS */
+
+.t2-ponto.visitado .t2-alerta {
+    background: #36b965;
+    border-color: #b2ffc5;
+    font-size: 0;
+}
+
+.t2-ponto.visitado .t2-alerta::after {
+    content: "✓";
+    font-size: 16px;
+}
+
+/* POSICOES DOS ALERTAS */
+
+.t2-ar {
+    left: 49%;
+    top: 22%;
+    animation-delay: 0.1s;
+}
+
+.t2-energia {
+    right: 2.5%;
+    top: 38%;
+    animation-delay: 0.2s;
+}
+
+.t2-agua {
+    left: 38%;
+    top: 56%;
+    animation-delay: 0.3s;
+}
+
+.t2-lixo {
+    right: 6%;
+    top: 67%;
+    animation-delay: 0.4s;
+}
+
+/* =========================
+   PERSONAGENS
+========================= */
+
+.t2-personagem {
+    position: absolute;
+    z-index: 3;
+
+    width: clamp(145px, 20vw, 290px);
+    max-height: 52%;
+
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+
+    filter: drop-shadow(0 13px 15px #163d3199);
+
+    animation: t2-balanco 3.2s ease-in-out infinite;
+}
+
+.t2-lumi {
+    left: 1%;
+    bottom: 12%;
+}
+
+.t2-capi {
+    right: 1%;
+    bottom: 12%;
+    animation-delay: -0.8s;
+}
+
+/* =========================
+   FALA DA LUMI
+========================= */
+
+.t2-fala {
+    position: absolute;
+    z-index: 4;
+
+    left: 19%;
+    bottom: 14%;
+
+    width: min(28%, 390px);
+    padding: 16px 17px 12px;
+
+    background: #fffcf0ee;
+    border: 3px solid white;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 22px #0006;
+}
+
+.t2-nome {
+    position: absolute;
+    top: -18px;
+    left: 15px;
+
+    padding: 3px 22px;
+
+    background: linear-gradient(#53c5ef,
+            #0d74b4);
+
+    color: white;
+
+    font-size: 12px;
+    font-weight: 900;
+    border-radius: 22px;
+}
+
+.t2-fala p {
+    margin: 0;
+    color: #1d5063;
+
+    font-size: clamp(12px, 1.3vw, 18px);
+    line-height: 1.35;
+    font-weight: 800;
+}
+
+/* =========================
+   NAVEGACAO
+========================= */
+
+.t2-navegacao {
+    position: absolute;
+    z-index: 7;
+
+    bottom: 3%;
+    left: 2.5%;
+    right: 2.5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    pointer-events: none;
+}
+
+.t2-navegacao>* {
+    pointer-events: auto;
+}
+
+.t2-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 14px 23px;
+
+    border: 3px solid #eaf6b5;
+    border-radius: 100px;
+
+    font-size: clamp(13px, 1.23vw, 18px);
+    font-weight: 900;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.t2-botao:hover {
+    transform: translateY(-4px) scale(1.03);
+    filter: brightness(1.08);
+}
+
+.t2-voltar {
+    background: white;
+    color: #1b6945;
+
+    box-shadow:
+        0 7px 0 #3a9060,
+        0 13px 20px #102a275d;
+}
+
+.t2-continuar,
+.t2-entendi {
+    color: #185e35;
+
+    background: linear-gradient(#a9f15c,
+            #55c146);
+
+    box-shadow:
+        0 7px 0 #308f3e,
+        0 13px 22px #102a275d;
+}
+
+.t2-numero {
+    padding: 7px 17px;
+    background: #fffde9df;
+    border-radius: 100px;
+
+    color: #216841;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+}
+
+/* =========================
+   PAINEL DE EXPLICACAO
+========================= */
+
+.t2-modal-fundo {
+    position: fixed;
+    z-index: 20;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+
+    padding: 18px;
+
+    background: #051810bd;
+    backdrop-filter: blur(7px);
+}
+
+.t2-modal {
+    position: relative;
+
+    width: min(93vw, 560px);
+    padding: 30px 31px 26px;
+
+    border: 5px solid #bb8540;
+    border-radius: 27px;
+    outline: 2px solid #ffe29c;
+
+    background: linear-gradient(135deg,
+            #fffdf0,
+            #f5e0bc);
+
+    box-shadow:
+        0 13px 0 #83552d,
+        0 25px 50px #0008;
+
+    animation: t2-entrar 0.25s ease-out;
+}
+
+.t2-modal-etiqueta {
+    display: inline-block;
+
+    padding: 7px 14px;
+    border-radius: 50px;
+
+    background: #e0f8d7;
+    color: #287044;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.11em;
+}
+
+.t2-modal h2 {
+    margin: 16px 35px 12px 0;
+
+    color: #226b42;
+
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(26px, 3vw, 37px);
+    line-height: 1.1;
+}
+
+.t2-modal p {
+    color: #384c3e;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.t2-dica {
+    margin: 16px 0;
+    padding: 13px 17px;
+
+    border-left: 5px solid #63aa40;
+    border-radius: 10px;
+
+    background: #e7f6dc;
+    color: #255b3c;
+
+    font-weight: 900;
+    line-height: 1.4;
+}
+
+.t2-fechar {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+
+    width: 43px;
+    height: 43px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #25794b;
+    color: white;
+
+    font-size: 29px;
+}
+
+.t2-entendi {
+    margin-top: 5px;
+}
+
+/* =========================
+   ANIMACOES
+========================= */
+
+@keyframes t2-aproximar {
+    from {
+        opacity: 0;
+        transform: scale(1.06);
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes t2-entrar {
+    from {
+        opacity: 0;
+        translate: 0 20px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes t2-balanco {
+
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -12px;
+    }
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 850px) {
+
+    .t2-placa {
+        width: 41%;
+        padding: 10px 12px;
+    }
+
+    .t2-placa h1 {
+        font-size: clamp(20px, 3vw, 29px);
+    }
+
+    .t2-ponto {
+        padding: 4px 7px;
+        gap: 5px;
+        min-height: 38px;
+    }
+
+    .t2-simbolo {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .t2-alerta {
+        width: 23px;
+        height: 23px;
+    }
+
+    .t2-fala {
+        left: 20%;
+        width: 36%;
+        padding: 10px;
+    }
+
+    .t2-lumi,
+    .t2-capi {
+        width: 24%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .t2-cena {
+        min-height: 820px;
+    }
+
+    .t2-placa {
+        top: 1.5%;
+        left: 3%;
+        width: 61%;
+    }
+
+    .t2-placa h1 {
+        font-size: 23px;
+    }
+
+    .t2-progresso {
+        top: 3%;
+        right: 2%;
+        padding: 7px;
+        font-size: 10px;
+    }
+
+    .t2-ponto {
+        font-size: 11px;
+    }
+
+    .t2-ar {
+        top: 28%;
+        left: 34%;
+    }
+
+    .t2-energia {
+        top: 39%;
+        right: 2%;
+    }
+
+    .t2-agua {
+        top: 54%;
+        left: 28%;
+    }
+
+    .t2-lixo {
+        top: 65%;
+        right: 3%;
+    }
+
+    .t2-fala {
+        bottom: 13%;
+        left: 27%;
+        width: 47%;
+    }
+
+    .t2-lumi,
+    .t2-capi {
+        bottom: 11%;
+        width: 29%;
+    }
+
+    .t2-navegacao {
+        bottom: 1.5%;
+    }
+
+    .t2-botao {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .t2-numero {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+
+    .t2-modal {
+        padding: 23px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

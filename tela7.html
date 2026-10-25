@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        EcoEnergia | Pequenas Ações, Grandes Mudanças
+    </title>
+
+    <link rel="stylesheet" href="tela7.css">
+
+    <script src="tela7.js" defer></script>
+    <script src="navegacao.js" defer></script>
+
+</head>
+
+<body>
+
+    <main class="t7-apresentacao">
+
+        <section class="t7-cena" id="tela-7">
+
+            <!-- =========================
+                 CENARIO DE FUNDO
+            ========================== -->
+
+            <div class="t7-fundo" aria-hidden="true">
+            </div>
+
+            <div class="t7-iluminacao" aria-hidden="true">
+            </div>
+
+
+            <!-- =========================
+                 TITULO SUPERIOR
+            ========================== -->
+
+            <header class="t7-cabecalho">
+
+                <div class="t7-placa-titulo">
+
+                    <h1>
+                        Pequenas Ações,
+                        <span>
+                            Grandes Mudanças!
+                        </span>
+                    </h1>
+
+                    <p>
+                        Atitudes simples hoje fazem
+                        um futuro melhor amanhã.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 LUMI - ESQUERDA
+            ========================== -->
+
+            <div class="t7-area-lumi">
+
+                <img src="assets/personagens/lumi-tela-7.png" alt="Lumi apontando para a casa sustentável"
+                    class="t7-lumi" draggable="false">
+
+            </div>
+
+
+            <!-- =========================
+                 CASA SUSTENTAVEL - CENTRO
+            ========================== -->
+
+            <div class="t7-area-casa">
+
+                <img src="assets/tela7/casa-sustentavel.png"
+                    alt="Casa sustentável com banheiro, quarto, cozinha e sala, mostrando como economizar água e energia."
+                    class="t7-casa" draggable="false">
+
+                <!--
+                    AREA DOS DESAFIOS
+
+                    Os botoes serao posicionados
+                    sobre a casa com CSS.
+
+                    O JavaScript controlara
+                    o resultado dos cliques.
+                -->
+
+                <div class="t7-desafios">
+
+                    <!-- DESAFIO DA AGUA -->
+
+                    <button type="button" class="t7-desafio t7-desafio-agua" id="t7-fechar-torneira"
+                        aria-label="Fechar a torneira e economizar água">
+                        <span class="t7-desafio-icone" aria-hidden="true">
+                            💧
+                        </span>
+                    </button>
+
+
+                    <!-- DESAFIO DA ENERGIA -->
+
+                    <button type="button" class="t7-desafio t7-desafio-energia" id="t7-apagar-luz"
+                        aria-label="Apagar a luz e economizar energia">
+                        <span class="t7-desafio-icone" aria-hidden="true">
+                            💡
+                        </span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 CAPI - DIREITA
+            ========================== -->
+
+            <div class="t7-area-capi">
+
+                <img src="assets/personagens/capi-tela-7.png" alt="Capi comemorando as atitudes sustentáveis"
+                    class="t7-capi" draggable="false">
+
+            </div>
+
+
+            <!-- =========================
+                 MENSAGEM DE PARABENS
+            ========================== -->
+
+            <div class="t7-parabens" id="t7-parabens" aria-live="polite" hidden>
+
+                <span class="t7-parabens-icone" aria-hidden="true">
+                    ✅
+                </span>
+
+                <strong>
+                    Muito bem!
+                </strong>
+
+                <p id="t7-texto-parabens">
+                    Você está ajudando o planeta!
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 FRASE INFERIOR
+            ========================== -->
+
+            <div class="t7-mensagem">
+
+                <span class="t7-mensagem-icone" aria-hidden="true">
+                    🌱
+                </span>
+
+                <p>
+                    Aprender no
+                    <strong>EcoEnergia</strong>
+                    é o primeiro passo para
+                    <span>
+                        transformar o mundo!
+                    </span>
+                </p>
+
+                <span class="t7-mensagem-planeta" aria-hidden="true">
+                    🌎
+                </span>
+
+            </div>
+
+
+            <!-- =========================
+                 NAVEGACAO INFERIOR
+            ========================== -->
+
+            <nav class="t7-navegacao" aria-label="Navegação da apresentação">
+
+                <!-- VOLTAR -->
+
+                <a href="tela6.html" class="t7-botao t7-voltar">
+                    <span aria-hidden="true">
+                        ←
+                    </span>
+
+                    Voltar
+                </a>
+
+
+                <!-- CONTADOR -->
+
+                <span class="t7-indicador">
+                    07 / 10
+                </span>
+
+
+                <!-- CONTINUAR -->
+
+                <button type="button" class="t7-botao t7-continuar" id="t7-continuar">
+                    Continuar
+
+                    <span aria-hidden="true">
+                        ➜
+                    </span>
+                </button>
+
+            </nav>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

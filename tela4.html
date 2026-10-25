@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EcoEnergia | A Jornada da Criança</title>
+
+    <link rel="stylesheet" href="tela4.css">
+
+    <script src="tela4.js" defer></script>
+</head>
+
+<body>
+
+    <main class="t4-apresentacao">
+
+        <section class="t4-cena" id="tela-4">
+
+            <!-- =========================
+                 CENARIO PRINCIPAL
+            ========================== -->
+
+            <div class="t4-fundo" aria-hidden="true">
+            </div>
+
+            <div class="t4-iluminacao" aria-hidden="true">
+            </div>
+
+
+            <!-- =========================
+                 TITULO
+            ========================== -->
+
+            <header class="t4-cabecalho">
+
+                <div class="t4-placa-titulo">
+
+                    <h1>
+                        A Jornada da
+                        <span>Criança</span>
+                    </h1>
+
+                    <p>
+                        Veja como a criança aprende,
+                        joga e evolui no EcoEnergia!
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 QUATRO ETAPAS VISUAIS
+            ========================== -->
+
+            <div class="t4-jornada">
+
+                <!-- ETAPA 1: COMEÇAR -->
+
+                <div class="t4-passo t4-passo-1">
+
+                    <img src="assets/etapas/etapa-1.png"
+                        alt="Etapa 1: Começar a aventura. Crie sua conta e entre no mundo do EcoEnergia."
+                        draggable="false">
+
+                </div>
+
+
+                <!-- ETAPA 2: COMPANHEIRO -->
+
+                <div class="t4-passo t4-passo-2">
+
+                    <img src="assets/etapas/etapa-2.png"
+                        alt="Etapa 2: Criar seu companheiro. Personalize seu avatar para viver essa jornada com você."
+                        draggable="false">
+
+                </div>
+
+
+                <!-- ETAPA 3: TRILHAS -->
+
+                <div class="t4-passo t4-passo-3">
+
+                    <img src="assets/etapas/etapa-3.png"
+                        alt="Etapa 3: Explorar as trilhas. Complete atividades, responda desafios e aprenda sobre sustentabilidade."
+                        draggable="false">
+
+                </div>
+
+
+                <!-- ETAPA 4: EVOLUÇÃO -->
+
+                <div class="t4-passo t4-passo-4">
+
+                    <img src="assets/etapas/etapa-4.png"
+                        alt="Etapa 4: Evoluir e conquistar. Ganhe XP, EcoMoedas e novas recompensas." draggable="false">
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 PERSONAGENS
+            ========================== -->
+
+            <!-- LUMI ESQUERDA -->
+
+            <img src="assets/personagens/lumi-tela-4.png" alt="Lumi apresentando a jornada"
+                class="t4-personagem t4-lumi" id="t4-lumi" draggable="false">
+
+
+            <!-- CAPI DIREITA -->
+
+            <img src="assets/personagens/capi-tela-4.png" alt="Capi apontando para a jornada"
+                class="t4-personagem t4-capi" id="t4-capi" draggable="false">
+
+
+            <!-- =========================
+                 NAVEGACAO
+            ========================== -->
+
+            <nav class="t4-navegacao" aria-label="Navegação da apresentação">
+
+                <a class="t4-botao t4-voltar" href="tela3.html">
+
+                    <span aria-hidden="true">←</span>
+                    Voltar
+
+                </a>
+
+
+                <span class="t4-indicador">
+                    04 / 10
+                </span>
+
+
+                <button class="t4-botao t4-continuar" id="t4-continuar" type="button">
+
+                    Continuar
+                    <span aria-hidden="true">➜</span>
+
+                </button>
+
+            </nav>
+
+        </section>
+
+    </main>
+
+
+    <script src="navegacao.js"></script>
+
+
+</body>
+
+</html>

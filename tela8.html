@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        EcoEnergia | Cada Conquista Conta
+    </title>
+
+    <!-- CSS DA TELA 8 -->
+    <link rel="stylesheet" href="tela8.css">
+
+    <!-- JAVASCRIPT DA TELA 8 -->
+    <script src="tela8.js" defer></script>
+
+    <!-- NAVEGACAO GLOBAL -->
+    <script src="navegacao.js" defer></script>
+
+</head>
+
+<body>
+
+    <main class="t8-apresentacao">
+
+        <section class="t8-cena" id="tela-8">
+
+
+            <!-- =========================
+                 CENARIO DE FUNDO
+            ========================== -->
+
+            <div class="t8-fundo" aria-hidden="true">
+            </div>
+
+            <div class="t8-iluminacao" aria-hidden="true">
+            </div>
+
+
+            <!-- =========================
+                 TITULO PRINCIPAL
+            ========================== -->
+
+            <header class="t8-cabecalho">
+
+                <div class="t8-placa-titulo">
+
+                    <h1>
+                        Cada
+                        <span>Conquista Conta!</span>
+                    </h1>
+
+                    <p>
+                        XP, conquistas e EcoMoedas
+                        mostram a evolução da criança.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 LUMI - ESQUERDA
+            ========================== -->
+
+            <div class="t8-area-lumi">
+
+                <img src="assets/personagens/lumi-tela-7.png" alt="Lumi apresentando as conquistas" class="t8-lumi"
+                    draggable="false">
+
+            </div>
+
+
+            <!-- =========================
+                 AREA PRINCIPAL
+                 DOS PAINEIS
+            ========================== -->
+
+            <div class="t8-area-paineis">
+
+
+                <!-- =====================
+                     MEU PROGRESSO
+                     LADO ESQUERDO
+                ====================== -->
+
+                <div class="t8-area-progresso">
+
+                    <img src="assets/tela8/meu-progresso.png"
+                        alt="Painel Meu Progresso com nível, XP, liga e sequência diária." class="t8-painel-progresso"
+                        draggable="false">
+
+                </div>
+
+
+                <!-- =====================
+                     PAINEIS DA DIREITA
+                ====================== -->
+
+                <div class="t8-paineis-direita">
+
+
+                    <!-- MINHAS LIGAS -->
+
+                    <div class="t8-area-ligas">
+
+                        <img src="assets/tela8/minhas-ligas.png" alt="Ligas Bronze, Prata, Ouro, Platina e Diamante."
+                            class="t8-painel-ligas" draggable="false">
+
+                    </div>
+
+
+                    <!-- MINHAS CONQUISTAS -->
+
+                    <div class="t8-area-conquistas">
+
+                        <img src="assets/tela8/minhas-conquistas.png"
+                            alt="Medalhas de sustentabilidade: natureza, água, energia limpa, reciclagem e proteção do planeta."
+                            class="t8-painel-conquistas" draggable="false">
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =========================
+                 ECOMOEDAS E ITENS
+                 PAINEL INFERIOR
+            ========================== -->
+
+            <div class="t8-area-ecomoedas">
+
+                <img src="assets/tela8/ecomoedas-itens.png"
+                    alt="Painel de 320 EcoMoedas e itens desbloqueáveis: chapéus, óculos, roupas, mochilas e efeitos."
+                    class="t8-painel-ecomoedas" draggable="false">
+
+            </div>
+
+
+            <!-- =========================
+                 CAPI - DIREITA
+            ========================== -->
+
+            <div class="t8-area-capi">
+
+                <img src="assets/personagens/capi-tela-7.png" alt="Capi comemorando as conquistas" class="t8-capi"
+                    draggable="false">
+
+            </div>
+
+
+            <!-- =========================
+                 BOTAO DE RECOMPENSA
+            ========================== -->
+
+            <div class="t8-area-recompensa">
+
+                <button type="button" class="t8-botao-recompensa" id="t8-conquistar-recompensa">
+
+                    <span aria-hidden="true">
+                        🎁
+                    </span>
+
+                    Conquistar recompensa
+
+                </button>
+
+            </div>
+
+
+            <!-- =========================
+                 MENSAGEM DE CONQUISTA
+                 CONTROLADA PELO JS
+            ========================== -->
+
+            <div class="t8-modal" id="t8-modal" role="dialog" aria-modal="true" aria-labelledby="t8-modal-titulo"
+                hidden>
+
+                <div class="t8-modal-conteudo">
+
+                    <div class="t8-modal-icone" aria-hidden="true">
+                        🏆
+                    </div>
+
+                    <h2 id="t8-modal-titulo">
+                        Recompensa conquistada!
+                    </h2>
+
+                    <p>
+                        Parabéns! Você está evoluindo
+                        na sua jornada sustentável!
+                    </p>
+
+                    <div class="t8-recompensas-ganhas">
+
+                        <span>⭐ +80 XP</span>
+
+                        <span>🪙 +20 EcoMoedas</span>
+
+                    </div>
+
+                    <button type="button" class="t8-fechar-modal" id="t8-fechar-modal">
+                        Continuar aventura
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 NAVEGACAO INFERIOR
+            ========================== -->
+
+            <nav class="t8-navegacao" aria-label="Navegação da apresentação">
+
+                <!-- VOLTAR -->
+
+                <a href="tela7.html" class="t8-botao t8-voltar">
+
+                    <span aria-hidden="true">←</span>
+
+                    Voltar
+
+                </a>
+
+
+                <!-- INDICADOR -->
+
+                <span class="t8-indicador">
+                    08 / 10
+                </span>
+
+
+                <!-- CONTINUAR -->
+
+                <button type="button" class="t8-botao t8-continuar" id="t8-continuar">
+
+                    Continuar
+
+                    <span aria-hidden="true">➜</span>
+
+                </button>
+
+            </nav>
+
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
